@@ -8,9 +8,10 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Button,
-  Link,
 } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function NavbarMain() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +28,7 @@ export default function NavbarMain() {
     "Log Out",
   ];
 
+  const pathname = usePathname();
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} className="my-auto ">
       <NavbarContent>
@@ -258,28 +260,28 @@ export default function NavbarMain() {
 
       {/* ! FOR LARGE SIZE */}
       <NavbarContent className="hidden lg:flex gap-4" justify="center">
-        <NavbarItem isActive>
-          <Link aria-current="page" href="#">
+        <NavbarItem>
+          <Link className={`link ${pathname === "/" ? "text-blue-600" : ""}`} href="/">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" color="foreground">
+          <Link className={`link ${pathname === "/about" ? "text-blue-600" : ""}`} href="/about">
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link className={`link ${pathname === "/service" ? "text-blue-600" : ""}`} href="/service">
             Service
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link className={`link ${pathname === "/portfolio" ? "text-blue-600" : ""}`} href="/portfolio">
             Portfolio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link className={`link ${pathname === "/contact" ? "text-blue-600" : "black"}`} href="/contact">
             Contact
           </Link>
         </NavbarItem>
@@ -304,7 +306,6 @@ export default function NavbarMain() {
               color={index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"}
               className="w-full"
               href="#"
-              size="lg"
             >
               {item}
             </Link>

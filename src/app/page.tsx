@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,9 +11,9 @@ export default function Home() {
         <p className="text-[16px]]">
           Create live segments and target the right people for messages based on their behaviors.
         </p>
-        <button className="bg-[#5ab424] p-[20px] text-white rounded-[20px] hover:bg-blue-600">
+        <Link href="/contact" className="bg-[#5ab424] p-[20px] text-white rounded-[20px] hover:bg-blue-600">
           Get Started
-        </button>
+        </Link>
       </div>
       <div className="relative mt-[50px]">
         <Image src="/k5c.png" width={600} height={600} alt="main " className=" absolute z-10" />
