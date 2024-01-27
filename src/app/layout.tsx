@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NavbarMain from "@/components/Navbar/Navbar";
+import { Providers } from "./Nextui/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <div className="container mx-[30px] md:m-auto">
+            <NavbarMain />
+            {children}
+          </div>
+        </Providers>
+      </body>
     </html>
   );
 }
