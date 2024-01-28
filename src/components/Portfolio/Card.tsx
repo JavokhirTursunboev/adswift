@@ -1,3 +1,4 @@
+"use client";
 interface CardProps {
   title: string;
   description: string;
@@ -5,12 +6,23 @@ interface CardProps {
   link: string;
   color: string;
 }
-
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 export default function Card({ title, description, src, link, color }: CardProps) {
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "start start"],
+  });
+  const scale: MotionValue<number> = useTransform(scrollYProgress, [0, 1], [2, 1]);
   return (
-    <div className="h-[100vh] w-[90%] md:w-full mx-auto flex  items-center justify-center sticky top-0 ">
+    <div
+      ref={container}
+      className="h-[100vh] w-[90%] md:w-full mx-auto flex  items-center justify-center sticky top-0 "
+    >
       <div
         style={{ backgroundColor: color }}
         className="bg-[color]
@@ -39,9 +51,9 @@ export default function Card({ title, description, src, link, color }: CardProps
           </div>
 
           <div className="hidden md:block relative w-[60%] h-full rounded-[25px] overflow-hidden">
-            <div className="w-full h-full">
+            <motion.div style={{ scale }} className="w-full h-full">
               <Image fill src={`/images/${src}`} alt="iamges" className="object-cover" />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
