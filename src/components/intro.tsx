@@ -3,7 +3,13 @@ import Link from "next/link";
 export default function Intro() {
   return (
     <>
-      <div className="  flex  flex-col  lg:min-h-[800px]  lg:flex-row   lg:items-center justify-around gap-[30px] mt-[20px] ">
+      <div
+        className=" flex  flex-col  lg:min-h-[800px]  
+      lg:flex-row 
+       lg:items-center
+        justify-around 
+        gap-[30px] mt-[20px] "
+      >
         <div
           className="flex flex-col  gap-[3rem] items-start lg:max-w-[500px] 
 "
