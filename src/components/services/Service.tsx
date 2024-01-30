@@ -2,7 +2,7 @@ import style from "./servce.module.css";
 
 export default function Service() {
   return (
-    <div className="bg-[#27272E] w-full px-[20px] lg:px- ">
+    <div className="bg-[#27272E] w-full px-[20px] lg:px-0 ">
       <div className="container mx-auto">
         <div>
           <h3 className="text-[#c75c6f]">What We Can Do For You</h3>
