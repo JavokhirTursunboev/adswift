@@ -4,10 +4,12 @@ export default function Intro() {
   return (
     <>
       <div
-        className=" flex  flex-col  lg:min-h-[800px]  
+        className=" flex container mx-auto
+         flex-col px-[20px] lg:px-0 
+          lg:min-h-[800px]  
       lg:flex-row 
        lg:items-center
-        justify-around 
+        justify-between 
         gap-[30px] mt-[20px] "
       >
         <div

@@ -30,7 +30,7 @@ export default function NavbarMain() {
 
   const pathname = usePathname();
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className="" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarBrand>
           <p className="font-bold text-inherit flex items-end text-[1rem] lg:text-[2rem]">
