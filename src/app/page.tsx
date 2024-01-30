@@ -27,15 +27,15 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="relative lg:mt-[50px] h-full">
-          <Image src="/k5c.png" width={600} height={600} alt="main " className=" absolute z-10" />
-          <Image src="/web4.png" width={600} height={600} alt="main" className=" z-0" />
+        <div className="relative lg:mt-[50px] h-[600px]">
+          <Image src="/k5c.png" width={600} height={600} alt="main " className=" absolute " />
+          <Image src="/web4.png" width={600} height={600} alt="main" className=" " />
         </div>
 
         {/* ! ======= SERvice ======== */}
       </div>
 
-      <div  >
+      <div>
         <Service />
       </div>
     </>
