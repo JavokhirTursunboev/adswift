@@ -27,7 +27,7 @@ export default function Intro() {
           </Link>
         </div>
 
-        <div className="h-auto">
+        <div className="h-auto ">
           <div className="relative lg:mt-[50px] ">
             <Image src="/web4.png" width={600} height={600} alt="main" className="absolute " />
             <Image src="/k5c.png" width={600} height={600} alt="main " className="relative" />
