@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import GlobalBtn from "./GlobalComponents/button";
 export default function Intro() {
   return (
     <>
@@ -22,9 +23,7 @@ export default function Intro() {
           <p className="text-[16px]]">
             Create live segments and target the right people for messages based on their behaviors.
           </p>
-          <Link href="/contact" className="bg-[#5ab424] p-[20px] text-white rounded-[20px] hover:bg-blue-600">
-            Get Started
-          </Link>
+          <GlobalBtn name={"Get Started"} />
         </div>
 
         <div className="h-auto ">

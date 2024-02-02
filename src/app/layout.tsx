@@ -4,6 +4,7 @@ import "./globals.css";
 import NavbarMain from "@/components/Navbar/Navbar";
 import { Providers } from "./Nextui/provider";
 
+// done
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +22,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <div className="  mx-auto  lg:px-0">
-            {" "}
             <NavbarMain />
             {children}
           </div>
