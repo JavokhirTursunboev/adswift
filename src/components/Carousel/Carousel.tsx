@@ -11,13 +11,18 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { dataCarousel } from "./dataCarousel";
 import GlobalBtn from "../GlobalComponents/button";
 
-import AnimatedNumbers from "react-animated-numbers";
+import Image from "next/image";
 import { useState } from "react";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
 
 export default function CarouselParent() {
-  const [num, setNum] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [count, setCount] = useState(false);
 
-  let number = 100;
+  const handleSlideChange = (swiper: any) => {
+    setActiveImageIndex(swiper.activeIndex);
+  };
   return (
     <div className=" container flex w-full mx-auto px-[20px]  py-[80px]   m-auto">
       <div className="w-full lg:max-w-[550px] ">
@@ -31,15 +36,16 @@ export default function CarouselParent() {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
           className=""
+          onSlideChange={handleSlideChange}
         >
-          {dataCarousel.map((dataCar) => {
+          {dataCarousel.map((dataCar, index) => {
             return (
-              <SwiperSlide key={dataCar.mainH} className="h-full w-full flex ">
-                <p className="text-[16px]  text-[#C75C6F]  mb-[15px] font-medium">{dataCar.sub}</p>
+              <SwiperSlide key={index} className="h-full w-full flex ">
+                <p className="text-[16px]  text-[#C75C6F]  mb-[15px] font-bold">{dataCar.sub}</p>
                 <div className=" mx-auto flex flex-col gap-[30px] w-full ">
                   <h1
-                    className="text-[25px] md:text-[45px] lg:text-[55px]
-                   xl:text-[56px]  leading-[60px] font-medium w-full"
+                    className="text-[34px] md:text-[45px] lg:text-[55px]
+                   xl:text-[56px] leading-[38px] md:leading-[45px] lg:leading-[60px] font-bolder w-full"
                   >
                     {dataCar.mainH}
                   </h1>
@@ -49,47 +55,68 @@ export default function CarouselParent() {
                   <div className="mt-[40px]">
                     <GlobalBtn name={"Read Case Study"} />
                   </div>
-                  <div className=" flex my-[60px]  gap-[60px]">
-                    <div className="flex flex-col ">
-                      <AnimatedNumbers
-                        includeComma
-                        transitions={(index) => ({
-                          type: "spring",
-                          duration: index + 1.4,
-                        })}
-                        animateToNumber={dataCar.num}
-                        fontStyle={{
-                          fontSize: "50px",
-                          color: "#C75C6F",
-                          fontWeight: "bold",
-                        }}
-                      />
-                      <p>ROI increase</p>
+                  <ScrollTrigger onEnter={() => setCount(true)} onExit={() => setCount(true)}>
+                    <div className=" flex my-[60px]  gap-[60px]">
+                      <div className="flex flex-col ">
+                        <div className="flex">
+                          {count && (
+                            <CountUp
+                              start={0}
+                              end={dataCar.numPer}
+                              duration={2.5}
+                              delay={0}
+                              style={{
+                                fontSize: "clamp(30px, 5vw, 50px)",
+                                color: "#C75C6F",
+                                fontWeight: "bold",
+                              }}
+                            />
+                          )}
+                          <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
+                            %
+                          </span>
+                        </div>
+                        <p>ROI increase</p>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <div className="flex">
+                          {count && (
+                            <CountUp
+                              start={0}
+                              end={dataCar.num}
+                              duration={3}
+                              delay={0}
+                              style={{
+                                fontSize: "clamp(30px, 5vw, 50px)",
+                                color: "#C75C6F",
+                                fontWeight: "bold",
+                              }}
+                            />
+                          )}
+                          <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
+                            k
+                          </span>
+                        </div>
+                        <p className="1rem">Monthly Website Visits</p>
+                      </div>
                     </div>
-                    <div className="flex flex-col">
-                      <AnimatedNumbers
-                        includeComma
-                        transitions={(index) => ({
-                          type: "spring",
-                          duration: index + 2.9,
-                        })}
-                        animateToNumber={dataCar.numPer}
-                        fontStyle={{
-                          fontSize: "50px",
-                          color: "#C75C6F",
-                          fontWeight: "bold",
-                        }}
-                      />
-                      <p>Monthly Website Visits</p>
-                    </div>
-                  </div>
+                  </ScrollTrigger>
                 </div>
               </SwiperSlide>
             );
           })}
         </Swiper>
       </div>
-      <div className=" hidden lg:flex flex-1">images</div>
+      <div className=" hidden lg:flex flex-1">
+        <Image
+          src={`/imageCar/${activeImageIndex + 1}.png`}
+          alt="carousel images"
+          className=" lg:block w-[450px] h-[450px] xl:w-auto xl:h-auto"
+          width={450}
+          height={450}
+        />
+      </div>
     </div>
   );
 }

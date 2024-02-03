@@ -40,3 +40,4 @@ Swiper.js
 animation
 framer.animation
 next.ui
+scroll triger

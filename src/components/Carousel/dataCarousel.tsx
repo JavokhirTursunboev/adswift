@@ -1,5 +1,6 @@
 export const dataCarousel = [
   {
+    index: 0,
     sub: "Latest Project Showcase",
     mainH: "Logo, identity & web design for Store.uz",
     mainP:
@@ -9,6 +10,7 @@ export const dataCarousel = [
     numPer: 15,
   },
   {
+    index: 1,
     sub: "Client Spotlight",
     mainH: "Digital marketing for MyTaxi",
     mainP:
@@ -18,6 +20,7 @@ export const dataCarousel = [
     numPer: 22,
   },
   {
+    index: 2,
     sub: "Innovative Design Series",
     mainH: "Interactive Mobile App Interface",
     mainP:

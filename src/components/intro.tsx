@@ -14,10 +14,13 @@ export default function Intro() {
         gap-[30px] mt-[20px] "
       >
         <div
-          className="flex flex-col  gap-[3rem] items-start lg:max-w-[500px] 
+          className="flex flex-col  gap-[3rem] items-start lg:max-w-[570px] 
 "
         >
-          <h1 className="text-[2.5rem] md:text-[70px] leading-[40px] md:leading-[55px] lg:mt-[5rem]  font-bold">
+          <h1
+            className="text-[2.5rem] md:text-[55px] xl:text-[78px]
+          leading-[40px] md:leading-none  lg:mt-[5rem]  font-medium lg:font-bold "
+          >
             Build beautiful website & mobile apps.
           </h1>
           <p className="text-[16px]]">
