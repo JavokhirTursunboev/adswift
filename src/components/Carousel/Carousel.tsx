@@ -12,10 +12,12 @@ import { dataCarousel } from "./dataCarousel";
 import GlobalBtn from "../GlobalComponents/button";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
-import ScrollTrigger from "react-scroll-trigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 export default function CarouselParent() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [count, setCount] = useState(false);
@@ -23,6 +25,16 @@ export default function CarouselParent() {
   const handleSlideChange = (swiper: any) => {
     setActiveImageIndex(swiper.activeIndex);
   };
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: ".triggered", // replace with your trigger element selector
+      start: "top 80%", // adjust the start position as needed
+      end: "bottom 20%", // adjust the end position as needed
+      onEnter: () => setCount(true),
+      onLeaveBack: () => setCount(false),
+    });
+  }, []);
   return (
     <div className=" container flex w-full mx-auto px-[20px]  py-[80px]   m-auto">
       <div className="w-full lg:max-w-[550px] ">
@@ -55,53 +67,52 @@ export default function CarouselParent() {
                   <div className="mt-[40px]">
                     <GlobalBtn name={"Read Case Study"} />
                   </div>
-                  <ScrollTrigger onEnter={() => setCount(true)} onExit={() => setCount(true)}>
-                    <div className=" flex my-[60px]  gap-[60px]">
-                      <div className="flex flex-col ">
-                        <div className="flex">
-                          {count && (
-                            <CountUp
-                              start={0}
-                              end={dataCar.numPer}
-                              duration={2.5}
-                              delay={0}
-                              style={{
-                                fontSize: "clamp(30px, 5vw, 50px)",
-                                color: "#C75C6F",
-                                fontWeight: "bold",
-                              }}
-                            />
-                          )}
-                          <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
-                            %
-                          </span>
-                        </div>
-                        <p>ROI increase</p>
-                      </div>
 
-                      <div className="flex flex-col">
-                        <div className="flex">
-                          {count && (
-                            <CountUp
-                              start={0}
-                              end={dataCar.num}
-                              duration={3}
-                              delay={0}
-                              style={{
-                                fontSize: "clamp(30px, 5vw, 50px)",
-                                color: "#C75C6F",
-                                fontWeight: "bold",
-                              }}
-                            />
-                          )}
-                          <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
-                            k
-                          </span>
-                        </div>
-                        <p className="1rem">Monthly Website Visits</p>
+                  <div className=" flex my-[60px]  gap-[60px] triggered">
+                    <div className="flex flex-col ">
+                      <div className="flex">
+                        {count && (
+                          <CountUp
+                            start={0}
+                            end={dataCar.numPer}
+                            duration={2.5}
+                            delay={0}
+                            style={{
+                              fontSize: "clamp(30px, 5vw, 50px)",
+                              color: "#C75C6F",
+                              fontWeight: "bold",
+                            }}
+                          />
+                        )}
+                        <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
+                          %
+                        </span>
                       </div>
+                      <p>ROI increase</p>
                     </div>
-                  </ScrollTrigger>
+
+                    <div className="flex flex-col">
+                      <div className="flex">
+                        {count && (
+                          <CountUp
+                            start={0}
+                            end={dataCar.num}
+                            duration={3}
+                            delay={0}
+                            style={{
+                              fontSize: "clamp(30px, 5vw, 50px)",
+                              color: "#C75C6F",
+                              fontWeight: "bold",
+                            }}
+                          />
+                        )}
+                        <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
+                          k
+                        </span>
+                      </div>
+                      <p className="1rem">Monthly Website Visits</p>
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             );
