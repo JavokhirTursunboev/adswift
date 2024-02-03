@@ -26,6 +26,7 @@ export default function CarouselParent() {
     setActiveImageIndex(swiper.activeIndex);
   };
 
+  // ! =============== GSAP SCROLL ======================
   useEffect(() => {
     ScrollTrigger.create({
       trigger: ".triggered", // replace with your trigger element selector
