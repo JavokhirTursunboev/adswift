@@ -1,35 +1,23 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import Image from "next/image";
 import { dataCarousel } from "./dataCarousel";
 import GlobalBtn from "../GlobalComponents/button";
-import { animate, useMotionValue, useTransform, motion } from "framer-motion";
 
-// swiper
+import AnimatedNumbers from "react-animated-numbers";
+import { useState } from "react";
+
 export default function CarouselParent() {
-  // animation for number
-  const count = useMotionValue(0);
-  const countNumPer = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-  const roundedNumPer = useTransform(countNumPer, (latest) => Math.round(latest));
-  useEffect(() => {
-    const controlsNum = animate(count, dataCarousel[0].num);
-    const controlsNumPer = animate(countNumPer, dataCarousel[0].numPer);
-    return () => {
-      controlsNum.stop();
-      controlsNumPer.stop();
-    };
-  }, [count, countNumPer]);
+  const [num, setNum] = useState(0);
 
+  let number = 100;
   return (
     <div className=" container flex w-full mx-auto px-[20px]  py-[80px]   m-auto">
       <div className="w-full lg:max-w-[550px] ">
@@ -63,11 +51,35 @@ export default function CarouselParent() {
                   </div>
                   <div className=" flex my-[60px]  gap-[60px]">
                     <div className="flex flex-col ">
-                      <motion.p className="text-[50px] font-bold text-[#C75C6F]">{rounded}</motion.p>
+                      <AnimatedNumbers
+                        includeComma
+                        transitions={(index) => ({
+                          type: "spring",
+                          duration: index + 1.4,
+                        })}
+                        animateToNumber={dataCar.num}
+                        fontStyle={{
+                          fontSize: "50px",
+                          color: "#C75C6F",
+                          fontWeight: "bold",
+                        }}
+                      />
                       <p>ROI increase</p>
                     </div>
                     <div className="flex flex-col">
-                      <motion.p className="text-[50px] font-bold text-[#C75C6F]">{roundedNumPer}</motion.p>
+                      <AnimatedNumbers
+                        includeComma
+                        transitions={(index) => ({
+                          type: "spring",
+                          duration: index + 2.9,
+                        })}
+                        animateToNumber={dataCar.numPer}
+                        fontStyle={{
+                          fontSize: "50px",
+                          color: "#C75C6F",
+                          fontWeight: "bold",
+                        }}
+                      />
                       <p>Monthly Website Visits</p>
                     </div>
                   </div>
