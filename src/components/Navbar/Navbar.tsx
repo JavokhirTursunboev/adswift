@@ -30,7 +30,12 @@ export default function NavbarMain() {
 
   const pathname = usePathname();
   return (
-    <Navbar className="" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      className={`${
+        pathname === "/about" ? "bg-gradient-to-r from-gray-200 via-gray-200 to-transparent " : ""
+      } `}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent>
         <NavbarBrand>
           <p className="font-bold text-inherit flex items-end text-[1rem] lg:text-[2rem]">

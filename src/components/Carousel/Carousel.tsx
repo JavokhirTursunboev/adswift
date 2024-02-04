@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function CarouselParent() {
@@ -33,12 +34,17 @@ export default function CarouselParent() {
       start: "top 80%", // adjust the start position as needed
       end: "bottom 20%", // adjust the end position as needed
       onEnter: () => setCount(true),
-      onLeaveBack: () => setCount(false),
+      onLeaveBack: () => setCount(true),
     });
   }, []);
   return (
     <div className=" container flex w-full mx-auto px-[20px]  py-[80px]   m-auto">
-      <div className="w-full lg:max-w-[550px] ">
+      <motion.div
+        initial={{ x: "-100%" }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: true }}
+        className="w-full lg:max-w-[550px] "
+      >
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -58,7 +64,7 @@ export default function CarouselParent() {
                 <div className=" mx-auto flex flex-col gap-[30px] w-full ">
                   <h1
                     className="text-[34px] md:text-[45px] lg:text-[55px]
-                   xl:text-[56px] leading-[38px] md:leading-[45px] lg:leading-[60px] font-bolder w-full"
+                   xl:text-[56px] leading-[38px] md:leading-[45px] lg:leading-[60px] font-bold w-full"
                   >
                     {dataCar.mainH}
                   </h1>
@@ -119,8 +125,13 @@ export default function CarouselParent() {
             );
           })}
         </Swiper>
-      </div>
-      <div className=" hidden lg:flex flex-1">
+      </motion.div>
+      <motion.div
+        initial={{ x: "100vh" }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: true }}
+        className=" hidden lg:flex flex-1"
+      >
         <Image
           src={`/imageCar/${activeImageIndex + 1}.png`}
           alt="carousel images"
@@ -128,7 +139,7 @@ export default function CarouselParent() {
           width={450}
           height={450}
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

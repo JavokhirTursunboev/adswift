@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import NavbarMain from "@/components/Navbar/Navbar";
 import { Providers } from "./Nextui/provider";
 
 // done
-const inter = Inter({ subsets: ["latin"] });
+const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
