@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
-import Link from "next/link";
 import GlobalBtn from "./GlobalComponents/button";
+import { easeIn, motion } from "framer-motion";
 export default function Intro() {
   return (
     <>
@@ -13,7 +14,11 @@ export default function Intro() {
         justify-between 
         gap-[30px] mt-[20px] "
       >
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: easeIn }}
           className="flex flex-col  gap-[3rem] items-start lg:max-w-[570px] 
 "
         >
@@ -27,12 +32,26 @@ export default function Intro() {
             Create live segments and target the right people for messages based on their behaviors.
           </p>
           <GlobalBtn name={"Get Started"} />
-        </div>
+        </motion.div>
 
         <div className="h-auto ">
           <div className="relative lg:mt-[50px] ">
-            <Image src="/web4.png" width={600} height={600} alt="main" className="absolute " />
-            <Image src="/k5c.png" width={600} height={600} alt="main " className="relative" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              // transition={{ duration: 0.5, delay: 0.4, ease: [0, 0.71, 0.2, 1.01] }}
+            >
+              <Image src="/web4.png" width={600} height={600} alt="main" className="absolute " />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
+            >
+              <Image src="/k5c.png" width={600} height={600} alt="main " className="relative" />
+            </motion.div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function AboutMain() {
       className=" 
      bg-gradient-to-r
      from-gray-200 via-gray-200 
-    to-transparent  w-full  pt-[20px]  px-[20px]"
+    to-transparent  w-full  pt-[20px]  px-[20px] md:h-screen "
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <motion.div
@@ -26,9 +26,16 @@ export default function AboutMain() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
-          className="  w-[950px] flex-[1.6] "
+          className=" md:w-[690px] lg:w-[950px] flex-1 lg:flex-[1.6] "
         >
-          <Image src="/aboutImgs/banner.png" alt="phone" width={1000} height={900} className='w-full' />
+          <Image
+            src="/aboutImgs/banner.png"
+            alt="phone"
+            width={1000}
+            height={900}
+            className="lg:w-[full]"
+            priority={false}
+          />
         </motion.div>
       </div>
     </div>

@@ -12,11 +12,11 @@ import { dataCarousel } from "./dataCarousel";
 import GlobalBtn from "../GlobalComponents/button";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import CountUp from "react-countup";
+import { useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import { GlobalCountUp, useScrollTrigger } from "../GlobalComponents/countdown";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function CarouselParent() {
@@ -28,15 +28,13 @@ export default function CarouselParent() {
   };
 
   // ! =============== GSAP SCROLL ======================
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: ".triggered", // replace with your trigger element selector
-      start: "top 80%", // adjust the start position as needed
-      end: "bottom 20%", // adjust the end position as needed
-      onEnter: () => setCount(true),
-      onLeaveBack: () => setCount(true),
-    });
-  }, []);
+  useScrollTrigger(
+    ".triggered",
+    "top 80%",
+    "bottom 20%",
+    () => setCount(true),
+    () => setCount(true)
+  );
   return (
     <div className=" container flex w-full mx-auto px-[20px]  py-[80px]   m-auto">
       <motion.div
@@ -78,19 +76,7 @@ export default function CarouselParent() {
                   <div className=" flex my-[60px]  gap-[60px] triggered">
                     <div className="flex flex-col ">
                       <div className="flex">
-                        {count && (
-                          <CountUp
-                            start={0}
-                            end={dataCar.numPer}
-                            duration={2.5}
-                            delay={0}
-                            style={{
-                              fontSize: "clamp(30px, 5vw, 50px)",
-                              color: "#C75C6F",
-                              fontWeight: "bold",
-                            }}
-                          />
-                        )}
+                        {count && <GlobalCountUp count={true} dataCar={{ numPer: dataCar.numPer }} />}
                         <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
                           %
                         </span>
@@ -100,19 +86,7 @@ export default function CarouselParent() {
 
                     <div className="flex flex-col">
                       <div className="flex">
-                        {count && (
-                          <CountUp
-                            start={0}
-                            end={dataCar.num}
-                            duration={3}
-                            delay={0}
-                            style={{
-                              fontSize: "clamp(30px, 5vw, 50px)",
-                              color: "#C75C6F",
-                              fontWeight: "bold",
-                            }}
-                          />
-                        )}
+                        {count && <GlobalCountUp count={true} dataCar={{ numPer: dataCar.num }} />}
                         <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
                           k
                         </span>
