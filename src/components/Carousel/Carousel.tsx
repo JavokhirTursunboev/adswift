@@ -127,7 +127,7 @@ export default function CarouselParent() {
         </Swiper>
       </motion.div>
       <motion.div
-        initial={{ x: "100vh" }}
+        initial={{ x: 100 }}
         whileInView={{ x: 0 }}
         viewport={{ once: true }}
         className=" hidden lg:flex flex-1"
