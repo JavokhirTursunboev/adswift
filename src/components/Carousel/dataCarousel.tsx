@@ -1,4 +1,4 @@
-export const dataCarousel = [
+export const DataCarousel = [
   {
     index: 0,
     sub: "Latest Project Showcase",

@@ -1,7 +1,8 @@
 import AboutMain from "@/components/About/AboutMain/AboutMain";
 import WhoAbout from "./../../components/About/whoAbout/whoAbout";
+import AboutValues from "./../../components/About/AboutValues/AboutValues";
 
-export default function page() {
+export default function Page() {
   return (
     <div>
       <div>
@@ -11,6 +12,9 @@ export default function page() {
 
       <div>
         <WhoAbout />
+      </div>
+      <div>
+        <AboutValues />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { dataCarousel } from "./dataCarousel";
+import { DataCarousel } from "./dataCarousel";
 import GlobalBtn from "../GlobalComponents/button";
 
 import Image from "next/image";
@@ -16,9 +16,10 @@ import { useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import { GlobalCountUp, useScrollTrigger } from "../GlobalComponents/countdown";
+import { GlobalCountUp, UseScrollTrigger } from "../GlobalComponents/countdown";
 
 gsap.registerPlugin(ScrollTrigger);
+
 export default function CarouselParent() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [count, setCount] = useState(false);
@@ -28,7 +29,7 @@ export default function CarouselParent() {
   };
 
   // ! =============== GSAP SCROLL ======================
-  useScrollTrigger(
+  UseScrollTrigger(
     ".triggered",
     "top 80%",
     "bottom 20%",
@@ -55,7 +56,7 @@ export default function CarouselParent() {
           className=""
           onSlideChange={handleSlideChange}
         >
-          {dataCarousel.map((dataCar, index) => {
+          {DataCarousel.map((dataCar, index) => {
             return (
               <SwiperSlide key={index} className="h-full w-full flex ">
                 <p className="text-[16px]  text-[#C75C6F]  mb-[15px] font-bold">{dataCar.sub}</p>

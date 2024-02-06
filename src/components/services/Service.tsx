@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { dataService } from "./data";
+import { DataService } from "./Service_Fake";
 
 export default function Service() {
   const [hoverIndex, setHoverIndex] = useState<string | null>(null);
@@ -26,7 +26,7 @@ export default function Service() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3  auto-rows-auto ">
           {/*================= One box =================== */}
 
-          {dataService.map((service) => {
+          {DataService.map((service) => {
             let timerId;
             return (
               <div

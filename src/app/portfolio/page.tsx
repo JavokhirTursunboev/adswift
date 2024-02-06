@@ -1,6 +1,6 @@
 "use client";
 import Card from "@/components/Portfolio/Card";
-import { projects } from "@/fakedata/data";
+import { Projects } from "@/fakedata/data";
 import { useScroll } from "framer-motion";
 import { ReactNode, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
@@ -24,8 +24,8 @@ export default function Page() {
   });
   return (
     <main ref={container} className="mt-[50px] mb-[100vh] my-auto">
-      {projects.map((project, i): ReactNode => {
-        const targetScale = 1 - (projects.length - i) * 0.05;
+      {Projects.map((project, i): ReactNode => {
+        const targetScale = 1 - (Projects.length - i) * 0.05;
 
         return (
           <Card

@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const useScrollTrigger = (
+export const UseScrollTrigger = (
   selector: string,
   start: string,
   end: string,

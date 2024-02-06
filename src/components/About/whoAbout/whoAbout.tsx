@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
-import { useScrollTrigger, GlobalCountUp } from "./../../GlobalComponents/countdown";
+import { UseScrollTrigger, GlobalCountUp } from "./../../GlobalComponents/countdown";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function WhoAbout() {
   const [aboutCount, AboutSetCount] = useState(false);
   // !gsap
-  useScrollTrigger(
+  UseScrollTrigger(
     ".aboutCountDown",
     "top 80%",
     "bottom 20%",
@@ -19,7 +19,7 @@ export default function WhoAbout() {
       className="pt-[60px] pb-[30px]
                 md:pt-[80px] lg:pt-[140px] md:pb-[50px] 
                 flex flex-col lg:flex-row 
-                lg:gap-[30px] mx-auto 
+                lg:gap-[30px] mx-auto px-[20px] md:px-[30px] lg:px-0
                 container "
     >
       <motion.div
@@ -35,7 +35,7 @@ export default function WhoAbout() {
         initial={{ opacity: 0, scale: 0.5 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay:0.4, ease: [0, 0.71, 0.2, 1.01] }}
+        transition={{ duration: 0.5, delay: 0.4, ease: [0, 0.71, 0.2, 1.01] }}
         className="md:flex-1 lg:max-w-[520px] py-[15px]"
       >
         <div className="flex  flex-col gap-[30px] mb-[40px]">
@@ -64,7 +64,7 @@ export default function WhoAbout() {
             <p>Years of on the market</p>
           </div>
 
-          {/* num of projects */}
+          {/* num of Projects */}
 
           <div>
             {aboutCount && <GlobalCountUp count={true} dataCar={{ numPer: 200 }} />}

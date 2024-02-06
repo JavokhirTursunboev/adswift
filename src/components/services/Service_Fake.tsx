@@ -6,7 +6,7 @@ interface dataServiceType {
 
 import Image from "next/image";
 
-export const dataService: dataServiceType[] = [
+export const DataService: DataServiceType[] = [
   {
     icon: (
       <Image
@@ -89,6 +89,6 @@ export const dataService: dataServiceType[] = [
     ),
     title: "UI/UX Designing",
     description:
-      " We are specialized in creating beautiful and smooth UI/UX designs that provide better user experience by incorporating effective collaboration, streamlined projects which strive for better results.",
+      " We are specialized in creating beautiful and smooth UI/UX designs that provide better user experience by incorporating effective collaboration, streamlined Projects which strive for better results.",
   },
 ];

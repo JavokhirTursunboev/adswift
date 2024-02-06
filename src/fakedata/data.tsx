@@ -1,4 +1,4 @@
-export const projects = [
+export const Projects = [
   {
     title: "Matthias Leidinger",
     description:
