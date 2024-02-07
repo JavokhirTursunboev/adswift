@@ -88,7 +88,7 @@ export default function CarouselParent() {
                     <div className="flex flex-col">
                       <div className="flex">
                         {count && <GlobalCountUp count={true} dataCar={{ numPer: dataCar.num }} />}
-                        <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
+                        <span className="text-[#C75C6F] font-bold :text-[30px] md:text-[5vw] xl:text-[50px]">
                           k
                         </span>
                       </div>

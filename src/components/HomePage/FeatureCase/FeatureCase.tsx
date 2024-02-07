@@ -16,7 +16,7 @@ export default function Service() {
   );
 
   return (
-    <div className="bg-[#27272E] w-full px-[20px] md:px-[30px] xl:px-0 ">
+    <div className="bg-[#27272E] w-full px-[20px] md:px-[30px] xl:px-0 pb-[30px] lg:pb-[70px] lg:pt-[20px]">
       <div className="container mx-auto">
         <div
           className="flex  flex-col mx-auto items-center gap-[30px] py-[50px] 
