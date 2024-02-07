@@ -2,7 +2,9 @@
 import Image from "next/image";
 import GlobalBtn from "../../GlobalComponents/button";
 import { easeIn, motion } from "framer-motion";
+import { useState } from "react";
 export default function Intro() {
+ 
   return (
     <>
       <div
