@@ -9,14 +9,14 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { DataCarousel } from "./dataCarousel";
-import GlobalBtn from "../GlobalComponents/button";
+import GlobalBtn from "../../GlobalComponents/button";
 
 import Image from "next/image";
 import { useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import { GlobalCountUp, UseScrollTrigger } from "../GlobalComponents/countdown";
+import { GlobalCountUp, UseScrollTrigger } from "../../GlobalComponents/countdown";
 
 gsap.registerPlugin(ScrollTrigger);
 

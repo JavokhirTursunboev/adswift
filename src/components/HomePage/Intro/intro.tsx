@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import GlobalBtn from "./GlobalComponents/button";
+import GlobalBtn from "../../GlobalComponents/button";
 import { easeIn, motion } from "framer-motion";
 export default function Intro() {
   return (

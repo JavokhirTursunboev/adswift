@@ -6,7 +6,7 @@ interface dataServiceType {
 
 import Image from "next/image";
 
-export const DataService: DataServiceType[] = [
+export const DataService: dataServiceType[] = [
   {
     icon: (
       <Image

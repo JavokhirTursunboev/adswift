@@ -1,6 +1,7 @@
-import Service from "@/components/services/Service";
-import Intro from "./../components/intro";
-import CarouselParent from "@/components/Carousel/Carousel";
+import Service from "@/components/HomePage/services/Service";
+import Intro from "../components/HomePage/Intro/intro";
+import CarouselParent from "@/components/HomePage/Carousel/Carousel";
+import FeatureCase from "./../components/HomePage/FeatureCase/FeatureCase";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       </div>
       <div>
         <CarouselParent />
+      </div>
+      <div>
+        <FeatureCase />
       </div>
     </>
   );

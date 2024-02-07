@@ -29,6 +29,7 @@ export default function AboutMain() {
           className=" md:w-[690px] lg:w-[950px] flex-1 lg:flex-[1.6] "
         >
           <Image
+            quality={100}
             src="/aboutImgs/banner.png"
             alt="phone"
             width={1000}
