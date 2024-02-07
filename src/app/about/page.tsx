@@ -1,6 +1,7 @@
 import AboutMain from "@/components/About/AboutMain/AboutMain";
 import WhoAbout from "./../../components/About/whoAbout/whoAbout";
 import AboutValues from "./../../components/About/AboutValues/AboutValues";
+import AboutTeam from "@/components/About/AboutTeam/AboutTeam";
 
 export default function Page() {
   return (
@@ -15,6 +16,9 @@ export default function Page() {
       </div>
       <div>
         <AboutValues />
+      </div>
+      <div>
+        <AboutTeam />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ export default function AboutMain() {
       className=" 
      bg-gradient-to-r
      from-gray-200 via-gray-200 
-    to-transparent  w-full  pt-[20px] px-[20px] md:px-[30px] lg:px-0 md:h-screen "
+    to-transparent  w-full  pt-[20px] px-[20px] md:px-[30px] xl:px-0 xxl:h-screen "
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         <motion.div

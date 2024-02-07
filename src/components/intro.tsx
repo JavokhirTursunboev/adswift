@@ -7,7 +7,7 @@ export default function Intro() {
     <>
       <div
         className=" flex container mx-auto
-         flex-col px-[20px] lg:px-0 
+         flex-col   px-[20px] md:px-[30px] xl:px-0 
           lg:min-h-[800px]  
       lg:flex-row 
        lg:items-center

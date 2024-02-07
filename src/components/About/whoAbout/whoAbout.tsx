@@ -28,7 +28,14 @@ export default function WhoAbout() {
         viewport={{ once: true }}
         className="md: flex-1 lg:flex-2"
       >
-        <Image src="/aboutImgs/phone.png" width={740} height={740} alt="phone" priority={false} />
+        <Image
+          src="/aboutImgs/phone.png"
+          quality={100}
+          width={740}
+          height={740}
+          alt="phone"
+          priority={false}
+        />
       </motion.div>
       {/* text part */}
       <motion.div

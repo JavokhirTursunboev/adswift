@@ -5,7 +5,7 @@ import { DataService } from "./Service_Fake";
 export default function Service() {
   const [hoverIndex, setHoverIndex] = useState<string | null>(null);
   return (
-    <div className="bg-[#27272E] w-full px-[20px]  lg:px-0 ">
+    <div className="bg-[#27272E] w-full px-[20px] md:px-[30px] xl:px-0 ">
       <div className="container mx-auto">
         <div
           className="flex  flex-col justify-around gap-[30px] py-[50px] 

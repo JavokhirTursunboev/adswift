@@ -37,7 +37,7 @@ export default function CarouselParent() {
     () => setCount(true)
   );
   return (
-    <div className=" container flex w-full mx-auto px-[20px]  py-[80px]   m-auto">
+    <div className=" container flex w-full mx-auto   px-[20px] md:px-[30px] xl:px-0  py-[80px]   m-auto">
       <motion.div
         initial={{ x: "-100%" }}
         whileInView={{ x: 0 }}
