@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { DataService } from "./Service_Fake";
+import { motion, easeIn } from "framer-motion";
 
 export default function Service() {
   const [hoverIndex, setHoverIndex] = useState<string | null>(null);
@@ -29,7 +30,15 @@ export default function Service() {
           {DataService.map((service) => {
             let timerId;
             return (
-              <div
+              <motion.div
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.2,
+                  delay: 0.2,
+                  ease: easeIn,
+                }}
                 key={service.title}
                 className={`grid col-auto grid-flow-col
                 py-[40px] xl:pt-[50px] xl:pb-[40px] 2xl:py-[50px]
@@ -59,7 +68,7 @@ export default function Service() {
                   <p className="text-[#b5b7b8] mb-[40px] group-hover:text-white ">{service.description}</p>
                   <p className="text-white mb-[40px] group-hover:text-[#b5b7b8]">Find more</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
