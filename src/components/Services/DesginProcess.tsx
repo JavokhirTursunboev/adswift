@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { easeIn, motion } from "framer-motion";
-
+import styles from "./Design.module.css";
 export default function DesginProcess() {
   return (
     <div className="px-[20px] md:px-[30px] xxl:px-0 pt-[60px] container mx-auto">
@@ -16,6 +16,7 @@ export default function DesginProcess() {
 
       <div>
         {/* box 1 */}
+
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -26,7 +27,7 @@ export default function DesginProcess() {
           }}
           className="md:flex md:items-center  md:gap-[30px] md:mb-[50px]"
         >
-          <div className=" md:flex md:flex-col md:items-end">
+          <div className={`md:flex md:flex-col md:items-end serviceImg ${styles.serviceImg}`}>
             <Image
               quality={100}
               priority={false}
@@ -67,7 +68,7 @@ export default function DesginProcess() {
               to ensure a seamless user experience.
             </p>
           </div>
-          <div className="md:flex-1">
+          <div className={styles.serviceImg}>
             <Image
               quality={100}
               priority={false}
@@ -90,7 +91,7 @@ export default function DesginProcess() {
           }}
           className="md:flex md:items-center  md:gap-[30px]  md:mb-[50px]"
         >
-          <div className=" md:flex md:flex-col md:items-end">
+          <div className={` md:flex md:flex-col md:items-end ${styles.serviceImg}`}>
             <Image
               quality={100}
               priority={false}
@@ -129,7 +130,7 @@ export default function DesginProcess() {
               vision to life with meticulous attention to detail.
             </p>
           </div>
-          <span className="md:flex-1">
+          <span className={styles.serviceImg}>
             <Image
               quality={100}
               priority={false}

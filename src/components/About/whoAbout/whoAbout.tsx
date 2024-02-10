@@ -67,14 +67,14 @@ export default function WhoAbout() {
         {/* year of experience */}
         <div className="flex gap-[20px] mx-auto aboutCountDown">
           <div>
-            {aboutCount && <GlobalCountUp count={true} dataCar={{ numPer: 2 }} />}
+            {aboutCount && <GlobalCountUp count={true} dataCar={{ numPer:2 }} />}
             <p>Years of on the market</p>
           </div>
 
           {/* num of Projects */}
 
           <div>
-            {aboutCount && <GlobalCountUp count={true} dataCar={{ numPer: 200 }} />}
+            {aboutCount && <GlobalCountUp count={true} dataCar={{ numPer:200 }} />}
             <p>Projects delivered so far</p>
           </div>
         </div>
