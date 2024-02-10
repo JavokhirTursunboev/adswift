@@ -109,7 +109,7 @@ export default function DesginProcess() {
             <h1 className="text-bolder mb-[30px] text-[32px] md:text-[40px] lg:w-[60%]">Test</h1>
             <p className="lg:w-[60%] text-[#737387]">
               Conduct rigorous testing across various scenarios and user interactions, validating the design s
-              effectiveness and identifying areas for improvement.
+              effectiveness and identifying areas for improvement
             </p>
           </div>
         </motion.div>
