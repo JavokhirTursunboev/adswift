@@ -4,12 +4,11 @@ import GlobalBtn from "../../GlobalComponents/button";
 import { easeIn, motion } from "framer-motion";
 import { useState } from "react";
 export default function Intro() {
- 
   return (
     <>
       <div
         className=" flex container mx-auto
-         flex-col   px-[20px] md:px-[30px] xl:px-0 
+         flex-col   px-[20px] md:px-[30px] xxl:px-0 
           lg:min-h-[800px]  
       lg:flex-row 
        lg:items-center

@@ -37,7 +37,7 @@ export default function CarouselParent() {
     () => setCount(true)
   );
   return (
-    <div className=" container flex w-full mx-auto   px-[20px] md:px-[30px] xl:px-0  py-[80px]   m-auto">
+    <div className=" container flex  mx-auto   px-[20px] md:px-[30px] xxl:px-0  py-[80px]   m-auto">
       <motion.div
         initial={{ x: "-100%" }}
         whileInView={{ x: 0 }}
@@ -88,7 +88,7 @@ export default function CarouselParent() {
                     <div className="flex flex-col">
                       <div className="flex">
                         {count && <GlobalCountUp count={true} dataCar={{ numPer: dataCar.num }} />}
-                        <span className="text-[#C75C6F] font-bold :text-[30px] md:text-[5vw] xl:text-[50px]">
+                        <span className="text-[#C75C6F] font-bold text-[30px] md:text-[5vw] xl:text-[50px]">
                           k
                         </span>
                       </div>
@@ -113,6 +113,8 @@ export default function CarouselParent() {
           className=" lg:block w-[450px] h-[450px] xl:w-auto xl:h-auto"
           width={450}
           height={450}
+          quality={100}
+          priority={false}
         />
       </motion.div>
     </div>

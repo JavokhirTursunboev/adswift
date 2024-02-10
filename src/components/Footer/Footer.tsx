@@ -5,7 +5,7 @@ import { easeIn, motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <div className="container w-full mx-auto    px-[20px] md:px-[30px] xl:px-0  pt-[80px]">
+    <div className="container w-full mx-auto    px-[20px] md:px-[30px] xxl:px-0  pt-[80px]">
       {/*================= icons ===================== */}
       <div className="flex justify-between pb-[50px]">
         <motion.span
@@ -63,13 +63,13 @@ export default function Footer() {
             </p>
             {/* mail part */}
             <form
-              className="flex w-full justify-around flex-wrap  items-stretch h-[72px] rounded-[20px] relative"
+              className="flex w-full justify-around flex-nowrap lg:flex-wrap  items-stretch h-[72px] rounded-[20px] relative"
               style={{
                 padding: "10px 10px 10px 55px",
                 boxShadow: "0 24px 48px -15px rgba(153, 161, 170, 0.25)",
               }}
             >
-              <div className="absolute left-[30px] top-[24px] z-1">
+              <div className=" hidden sm:block absolute left-[30px] top-[24px] z-1">
                 <MdEmail className="text-[22px]" />
               </div>
               <input
@@ -84,7 +84,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className=" border-none bg-[#5AB424] text-white  rounded-[16px] py-[10px] px-[28px] "
+                className=" border-none bg-[#5AB424] text-white  rounded-[16px] px-4 md:py-[10px] md:px-[28px] "
               >
                 Subscribe
               </button>
