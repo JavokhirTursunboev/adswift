@@ -6,7 +6,7 @@ import styles from "./Design.module.css";
 export default function DesginProcess() {
   return (
     <div className="px-[20px] md:px-[30px] xxl:px-0 pt-[60px] container mx-auto">
-      <div className="text-center mb-[40px] beforeclass">
+      <div className="text-center mb-[40px] ">
         <p className="mb-4 lg:text-[18px] text-[#E4405F]">Process</p>
         <h1 className="mb-[30px] text-[33px] md:text-[40px] lg:text-[50px] xl:text-[60px]">
           Our Design Process
@@ -25,9 +25,9 @@ export default function DesginProcess() {
             delay: 0.3,
             ease: easeIn,
           }}
-          className="md:flex md:items-center  md:gap-[30px] md:mb-[50px]"
+          className="md:flex md:items-center  md:gap-[30px] md:mb-[80px]"
         >
-          <div className={`md:flex md:flex-col md:items-end serviceImg ${styles.serviceImg}`}>
+          <div className={`md:flex  md:flex-col md:items-end serviceImg ${styles.serviceImg}`}>
             <Image
               quality={100}
               priority={false}
@@ -35,9 +35,10 @@ export default function DesginProcess() {
               alt="box"
               width={410}
               height={410}
+              className="md:flex-1"
             />
           </div>
-          <div className="md:flex md:flex-col md:items-start">
+          <div className="md:flex flex-1 md:flex-col md:items-start">
             <p className="text-[#c75c6f] text-bolder lg:w-[60%]">Step one</p>
             <h1 className="text-bolder mb-[30px] text-[32px] md:text-[40px] lg:w-[60%]">Discover</h1>
             <p className="lg:w-[60%] text-[#737387]">
@@ -47,7 +48,7 @@ export default function DesginProcess() {
           </div>
         </motion.div>
 
-        {/* ===================== box ===============================*/}
+        {/* ===================== box 2  ===============================*/}
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -56,7 +57,7 @@ export default function DesginProcess() {
             delay: 0.4,
             ease: easeIn,
           }}
-          className="flex md:flex flex-col-reverse md:flex-row md:items-center  md:gap-[30px] md:mb-[50px]"
+          className="flex md:flex flex-col-reverse md:flex-row md:items-center  md:gap-[30px] md:mb-[80px]"
         >
           <div className="md:flex md:flex-col md:flex-1 md:items-end ">
             <p className="text-[#c75c6f] text-bolder lg:w-[60%] ">Step two</p>
@@ -68,7 +69,7 @@ export default function DesginProcess() {
               to ensure a seamless user experience.
             </p>
           </div>
-          <div className={styles.serviceImg}>
+          <div className={`max-w-[410px] max-h-[410px] ${styles.serviceImg}`}>
             <Image
               quality={100}
               priority={false}
@@ -76,22 +77,23 @@ export default function DesginProcess() {
               alt="box"
               width={410}
               height={410}
+              className=" md:flex-1"
             />
           </div>
         </motion.div>
 
-        {/* ========================box ======================================*/}
+        {/* ========================box 3 ======================================*/}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{
-            delay: 0.5,
+            delay: 0.3,
             ease: easeIn,
           }}
-          className="md:flex md:items-center  md:gap-[30px]  md:mb-[50px]"
+          className="md:flex md:items-center  md:gap-[30px] md:mb-[80px]"
         >
-          <div className={` md:flex md:flex-col md:items-end ${styles.serviceImg}`}>
+          <div className={`md:flex  md:flex-col md:items-end serviceImg ${styles.serviceImg}`}>
             <Image
               quality={100}
               priority={false}
@@ -99,9 +101,10 @@ export default function DesginProcess() {
               alt="box"
               width={410}
               height={410}
+              className="md:flex-1"
             />
           </div>
-          <div>
+          <div className="md:flex flex-1 md:flex-col md:items-start">
             <p className="text-[#c75c6f] text-bolder lg:w-[60%]">Step three</p>
             <h1 className="text-bolder mb-[30px] text-[32px] md:text-[40px] lg:w-[60%]">Test</h1>
             <p className="lg:w-[60%] text-[#737387]">
@@ -120,7 +123,7 @@ export default function DesginProcess() {
             delay: 0.6,
             ease: easeIn,
           }}
-          className="flex md:flex flex-col-reverse md:flex-row md:items-center  md:gap-[30px]  md:mb-[50px]"
+          className="flex md:flex flex-col-reverse md:flex-row md:items-center  md:gap-[30px]  md:mb-[80px]"
         >
           <div className="md:flex-1 md:flex md:flex-col md:items-end">
             <p className="text-[#c75c6f] text-bolder lg:w-[60%]">Step four</p>
@@ -138,6 +141,7 @@ export default function DesginProcess() {
               alt="box"
               width={410}
               height={410}
+              className=" md:flex-1"
             />
           </span>
         </motion.div>
