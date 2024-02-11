@@ -5,7 +5,7 @@ import { easeIn, motion } from "framer-motion";
 import styles from "./Design.module.css";
 export default function DesginProcess() {
   return (
-    <div className="px-[20px] md:px-[30px] xxl:px-0 pt-[60px] container mx-auto">
+    <div className="px-[20px] md:px-[30px] xxl:px-0 pt-[60px] container mx-auto md:mx-0 ">
       <div className="text-center mb-[40px] ">
         <p className="mb-4 lg:text-[18px] text-[#E4405F]">Process</p>
         <h1 className="mb-[30px] text-[33px] md:text-[40px] lg:text-[50px] xl:text-[60px]">

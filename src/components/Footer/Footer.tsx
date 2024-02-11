@@ -2,6 +2,7 @@
 import { FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { easeIn, motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -117,7 +118,9 @@ export default function Footer() {
             <div className="flex flex-col gap-[16px]">
               <h1 className=" font-bold text-[20px]">Resourses</h1>
               <p className="hover:text-[#0d6efd] cursor-pointer ">Case Studies</p>
-              <p className="hover:text-[#0d6efd] cursor-pointer ">Portfolio</p>
+              <Link href="/portfolio" className="hover:text-[#0d6efd] cursor-pointer ">
+                Portfolio
+              </Link>
             </div>
             {/* Support */}
             <div className="flex flex-col gap-[16px]">
