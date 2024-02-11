@@ -43,7 +43,15 @@ export default function Intro() {
               viewport={{ once: true }}
               // transition={{ duration: 0.5, delay: 0.4, ease: [0, 0.71, 0.2, 1.01] }}
             >
-              <Image src="/web4.png" width={600} height={600} alt="main" className="absolute " />
+              <Image
+                src="/web4.png"
+                width={600}
+                height={600}
+                alt="main"
+                className="absolute  "
+                quality={100}
+                priority={false}
+              />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 100 }}
@@ -51,7 +59,15 @@ export default function Intro() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
             >
-              <Image src="/k5c.png" width={600} height={600} alt="main " className="relative" />
+              <Image
+                src="/k5c.png"
+                width={600}
+                height={600}
+                alt="main "
+                className="relative"
+                quality={100}
+                priority={false}
+              />
             </motion.div>
           </div>
         </div>
