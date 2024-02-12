@@ -88,10 +88,20 @@ export default function NavbarMain() {
       {/* fOR SMALL SIZE */}
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/login" className={`link ${pathname === "/login" ? "text-red-500 font-bold  " : ""}`}>
+            Login
+          </Link>
         </NavbarItem>
-        <NavbarItem  >
-          <Button as={Link} color="primary" href="#" variant="flat" className="hidden lg:flex">
+        <NavbarItem>
+          <Button
+            as={Link}
+            color="primary"
+            href="/signup"
+            variant="flat"
+            className={`hidden lg:flex text-black link ${
+              pathname === "/signup" ? "text-red-500 font-bold " : ""
+            }`}
+          >
             Sign Up
           </Button>
         </NavbarItem>
@@ -100,39 +110,66 @@ export default function NavbarMain() {
 
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="lg:hidden" />
       </NavbarContent>
-      <NavbarMenu className='text-center' >
+      <NavbarMenu className="text-center">
         <NavbarItem>
-          <Link className={`link ${pathname === "/" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/">
+          <Link
+            className={`link ${pathname === "/" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`}
+            href="/"
+          >
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className={`link ${pathname === "/about" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/about">
+          <Link
+            className={`link ${pathname === "/about" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`}
+            href="/about"
+          >
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className={`link ${pathname === "/service" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl `} href="/service">
+          <Link
+            className={`link ${
+              pathname === "/service" ? "text-blue-600 font-bold ml-5 text-xxl" : ""
+            } text-xl `}
+            href="/service"
+          >
             Service
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className={`link ${pathname === "/portfolio" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/portfolio">
+          <Link
+            className={`link ${
+              pathname === "/portfolio" ? "text-blue-600 font-bold ml-5 text-xxl" : ""
+            } text-xl`}
+            href="/portfolio"
+          >
             Portfolio
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className={`link ${pathname === "/contact" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/contact">
+          <Link
+            className={`link ${
+              pathname === "/contact" ? "text-blue-600 font-bold ml-5 text-xxl" : ""
+            } text-xl`}
+            href="/contact"
+          >
             Contact
           </Link>
         </NavbarItem>
         <hr />
         <div className="flex items-center justify-between mt-10">
           <NavbarItem>
-            <Link href="#">Login</Link>
+            <Link href="/login">Login</Link>
           </NavbarItem>
           <NavbarItem>
-            <Button as={Link} color="primary" href="#" variant="flat">
+            <Button
+              as={Link}
+              color="primary"
+              href="/signup"
+              variant="flat"
+              className={`text-black link ${pathname === "/signup" ? "text-red-500  " : ""}`}
+            >
               Sign Up
             </Button>
           </NavbarItem>
