@@ -2,7 +2,7 @@
 import Image from "next/image";
 import GlobalBtn from "../../GlobalComponents/button";
 import { easeIn, motion } from "framer-motion";
-import { useState } from "react";
+import Link from "next/link";
 export default function Intro() {
   return (
     <>
@@ -32,7 +32,12 @@ export default function Intro() {
           <p className="text-[16px]]">
             Create live segments and target the right people for messages based on their behaviors.
           </p>
-          <GlobalBtn name={"Get Started"} />
+          <Link
+            href="/contact"
+            className="bg-[#5ab424] py-[20px] px-[40px] text-white rounded-[20px] hover:bg-blue-600"
+          >
+            Get Start
+          </Link>
         </motion.div>
 
         <div className="h-auto ">
