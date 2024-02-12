@@ -1,5 +1,9 @@
 "use client";
-import Card from "@/components/Portfolio/Card";
+import dynamic from "next/dynamic";
+// Dynamically import the Card component
+const Card = dynamic(() => import("@/components/Portfolio/Card"),{
+  loading: () => <p>loading...</p>
+});
 import { Projects } from "@/fakedata/data";
 import { useScroll } from "framer-motion";
 import { ReactNode, useEffect, useRef } from "react";

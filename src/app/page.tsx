@@ -1,7 +1,16 @@
-import Service from "@/components/HomePage/services/Service";
 import Intro from "../components/HomePage/Intro/intro";
-import CarouselParent from "@/components/HomePage/Carousel/Carousel";
-import FeatureCase from "./../components/HomePage/FeatureCase/FeatureCase";
+
+import dynamic from "next/dynamic";
+
+const DynamicService = dynamic(() => import("./../components/HomePage/services/Service"), {
+  loading: () => <p>loading...</p>,
+});
+const DynamicCarousel = dynamic(() => import("./../components/HomePage/Carousel/Carousel"), {
+  loading: () => <p>loading...</p>,
+});
+const DynamicFeature = dynamic(() => import("./../components/HomePage/FeatureCase/FeatureCase"), {
+  loading: () => <p>loading...</p>,
+});
 
 export default function Home() {
   return (
@@ -10,13 +19,13 @@ export default function Home() {
         <Intro />
       </div>
       <div>
-        <Service />
+        <DynamicService />
       </div>
       <div>
-        <CarouselParent />
+        <DynamicCarousel />
       </div>
       <div>
-        <FeatureCase />
+        <DynamicFeature />
       </div>
     </>
   );

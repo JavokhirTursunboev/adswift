@@ -16,17 +16,7 @@ import Link from "next/link";
 export default function NavbarMain() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-
-    "Log Out",
-  ];
+  const menuItems = ["Home", "Service", "Portfolio", "Contact", "Log Out"];
 
   const pathname = usePathname();
   return (
@@ -89,7 +79,7 @@ export default function NavbarMain() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className={`link ${pathname === "/contact" ? "text-blue-600" : "black"}`} href="/contact">
+          <Link className={`link ${pathname === "/contact" ? "text-blue-600" : ""}`} href="/contact">
             Contact
           </Link>
         </NavbarItem>
@@ -100,25 +90,42 @@ export default function NavbarMain() {
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem  >
           <Button as={Link} color="primary" href="#" variant="flat" className="hidden lg:flex">
             Sign Up
           </Button>
         </NavbarItem>
+
+        {/* ======================== hamberuger button ====================================  */}
+
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="lg:hidden" />
       </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"}
-              className="w-full"
-              href="#"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+      <NavbarMenu className='text-center' >
+        <NavbarItem>
+          <Link className={`link ${pathname === "/" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/">
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link className={`link ${pathname === "/about" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/about">
+            About
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link className={`link ${pathname === "/service" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl `} href="/service">
+            Service
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link className={`link ${pathname === "/portfolio" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/portfolio">
+            Portfolio
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link className={`link ${pathname === "/contact" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`} href="/contact">
+            Contact
+          </Link>
+        </NavbarItem>
         <hr />
         <div className="flex items-center justify-between mt-10">
           <NavbarItem>
