@@ -16,7 +16,7 @@ export default function SignUpCom() {
   }, [pathname]);
   return (
     <div className="container flex mx-auto flex-col w-full items-center justify-center mt-[80px]">
-      <Card className="max-w-full w-[540px] h-[400px]">
+      <Card className="max-w-full w-[540px] h-[600px]">
         <CardBody className="overflow-hidden">
           <Tabs
             fullWidth

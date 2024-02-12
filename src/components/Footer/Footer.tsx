@@ -123,7 +123,9 @@ export default function Footer() {
             {/* Support */}
             <div className="flex flex-col gap-[16px]">
               <h1 className=" font-bold text-[20px]">Support</h1>
-              <p className="hover:text-[#0d6efd] cursor-pointer ">Contact</p>
+              <Link href="/contact" className="hover:text-[#0d6efd] cursor-pointer ">
+                Contact
+              </Link>
               <p className="hover:text-[#0d6efd] cursor-pointer ">Terms of Use </p>
             </div>
           </div>
