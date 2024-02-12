@@ -35,6 +35,7 @@ export default function WhoAbout() {
           height={740}
           alt="phone"
           priority={false}
+          
         />
       </motion.div>
       {/* text part */}

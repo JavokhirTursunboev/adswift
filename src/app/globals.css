@@ -6,16 +6,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-.lin {
-  background: linear-gradient(90deg, #565677 0%, rgba(39, 39, 46, 0) 70.31%);
-}
-
-.oneBox:hover .lin {
-  transition: all 0.5s ease-in;
-  background-color: #5ab424;
-}
-.oneBox:hover .parag {
-  transition: all 0.5s ease-in;
-  color: white;
-}
-

@@ -75,8 +75,6 @@ export default function Footer() {
               </div>
               <input
                 type="email"
-                name="email"
-                id="email"
                 placeholder="Email address"
                 className="px-[15px] py-[5px]
            flex-1

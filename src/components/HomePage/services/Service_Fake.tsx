@@ -15,6 +15,7 @@ export const DataService: dataServiceType[] = [
         height={60}
         alt="icon"
         className="w-[60px]  lg:w-[85px] h-auto"
+        style={{ width: "auto", height: "auto" }}
       />
     ),
     title: "Website Designing",
@@ -29,6 +30,7 @@ export const DataService: dataServiceType[] = [
         height={60}
         alt="icon"
         className="w-[60px]  lg:w-[85px] h-auto"
+        style={{ width: "auto", height: "auto" }}
       />
     ),
     title: "Graphic Designing",
@@ -43,6 +45,7 @@ export const DataService: dataServiceType[] = [
         height={60}
         alt="icon"
         className="w-[60px]  lg:w-[85px] h-auto"
+        style={{ width: "auto", height: "auto" }}
       />
     ),
     title: "Online Marketing",
@@ -57,6 +60,7 @@ export const DataService: dataServiceType[] = [
         height={60}
         alt="icon"
         className="w-[50px]  lg:w-[75px] h-auto"
+        style={{ width: "auto", height: "auto" }}
       />
     ),
     title: "Mobile Development",
@@ -71,6 +75,7 @@ export const DataService: dataServiceType[] = [
         height={60}
         alt="icon"
         className="w-[60px]  lg:w-[85px] h-auto"
+        style={{ width: "auto", height: "auto" }}
       />
     ),
     title: "Web Development",
@@ -85,6 +90,7 @@ export const DataService: dataServiceType[] = [
         height={60}
         alt="icon"
         className="w-[60px]  lg:w-[85px] h-auto"
+        style={{ width: "auto", height: "auto" }}
       />
     ),
     title: "UI/UX Designing",

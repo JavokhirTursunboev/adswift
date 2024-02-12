@@ -22,9 +22,12 @@ export default function WeBuild() {
           </p>
         </div>
         {/* ===  IMAGES === */}
-        <motion.div initial={{ y: 100, opacity: 0 }} whileInView={{y:0, opacity:1}}
-        transition={{delay:0.4 , duration:0.4, ease: easeInOut}}
-        className="grid grid-cols-2 lg:grid-cols-4 mx-auto ">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.4, ease: easeInOut }}
+          className="grid grid-cols-2 lg:grid-cols-4 mx-auto "
+        >
           {WeBuild_Data.map((item) => {
             return (
               <div
@@ -32,7 +35,13 @@ export default function WeBuild() {
                 className="w-[233] h-[133] opacity-[0.3] grayscale hover:opacity-100 hover:grayscale-0 
                 transition-all ease-in-out duration-300"
               >
-                <Image src={item.img} alt="logo" width={233} height={133} />
+                <Image
+                  src={item.img}
+                  alt="logo"
+                  width={233}
+                  height={133}
+                  style={{ width: "auto", height: "auto" }}
+                />
               </div>
             );
           })}

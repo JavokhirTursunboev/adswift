@@ -52,7 +52,7 @@ export default function Card({
         {/* Image for Phone */}
         <div className=" md:hidden   relative w-full h-full rounded-[25px] overflow-hidden">
           <motion.div style={{ scale: imageScale }} className="w-full h-full">
-            <Image fill src={`/images/${src}`} alt="iamges" className="object-cover" />
+            <Image fill src={`/images/${src}`} alt="iamges" className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
           </motion.div>
         </div>
         <h2 className="text-center text-[22px] lg:text-[28px] mt-[20px] ">{title}</h2>
@@ -69,7 +69,7 @@ export default function Card({
 
           <div className="hidden md:block relative w-[60%] h-full rounded-[25px] overflow-hidden">
             <motion.div style={{ scale: imageScale }} className="w-full h-full">
-              <Image fill src={`/images/${src}`} alt="iamges" className="object-cover" />
+              <Image fill src={`/images/${src}`} alt="iamges" className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             </motion.div>
           </div>
         </div>

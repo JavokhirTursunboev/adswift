@@ -22,7 +22,8 @@ export default function AboutTeam() {
           width={640}
           height={640}
           alt="phone"
-          priority={false}
+          priority
+          style={{ width: "100%", height: "auto" }}
         />
       </motion.div>
       <motion.div

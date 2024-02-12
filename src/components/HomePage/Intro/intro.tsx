@@ -55,7 +55,8 @@ export default function Intro() {
                 alt="main"
                 className="absolute  "
                 quality={100}
-                priority={false}
+                priority={true}
+                style={{ width: "auto", height: "auto" }}
               />
             </motion.div>
             <motion.div
@@ -71,7 +72,8 @@ export default function Intro() {
                 alt="main "
                 className="relative"
                 quality={100}
-                priority={false}
+                priority={true}
+                style={{ width: "100%", height: "auto" }}
               />
             </motion.div>
           </div>

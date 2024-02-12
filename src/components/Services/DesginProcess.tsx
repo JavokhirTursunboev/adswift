@@ -30,12 +30,13 @@ export default function DesginProcess() {
           <div className={`md:flex  md:flex-col md:items-end serviceImg ${styles.serviceImg}`}>
             <Image
               quality={100}
-              priority={false}
+              priority
               src="/service/process-1.png"
               alt="box"
               width={410}
               height={410}
               className="md:flex-1"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
           <div className="md:flex flex-1 md:flex-col md:items-start">
@@ -72,12 +73,13 @@ export default function DesginProcess() {
           <div className={`max-w-[410px] max-h-[410px] ${styles.serviceImg}`}>
             <Image
               quality={100}
-              priority={false}
+              priority
               src="/service/process-2.png"
               alt="box"
               width={410}
               height={410}
               className=" md:flex-1"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
         </motion.div>
@@ -96,12 +98,13 @@ export default function DesginProcess() {
           <div className={`md:flex  md:flex-col md:items-end serviceImg ${styles.serviceImg}`}>
             <Image
               quality={100}
-              priority={false}
+              priority
               src="/service/process-3.png"
               alt="box"
               width={410}
               height={410}
               className="md:flex-1"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
           <div className="md:flex flex-1 md:flex-col md:items-start">
@@ -136,12 +139,13 @@ export default function DesginProcess() {
           <span className={styles.serviceImg}>
             <Image
               quality={100}
-              priority={false}
+              priority
               src="/service/process-4.png"
               alt="box"
               width={410}
               height={410}
               className=" md:flex-1"
+              style={{ width: "auto", height: "auto" }}
             />
           </span>
         </motion.div>

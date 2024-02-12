@@ -35,7 +35,7 @@ export default function AboutMain() {
             width={1000}
             height={900}
             className="lg:w-[full]"
-            priority={false}
+            priority={true}
           />
         </motion.div>
       </div>

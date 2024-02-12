@@ -1,7 +1,7 @@
 "use client";
 import { AboutValue_Fake } from "@/fakedata/AboutValue_Fake";
 import { easeIn, motion } from "framer-motion";
-
+import style from "./About.module.css";
 export default function AboutValues() {
   return (
     <div className="bg-[#27272E] w-full px-[20px] md:px-[30px] xxl:px-0  pt-[60px] pb-[20px] ">
@@ -33,15 +33,17 @@ export default function AboutValues() {
                 }}
                 viewport={{ once: true }}
                 key={value.id}
-                className="mb-[60px] oneBox  cursor-pointer"
+                className={`mb-[60px]   cursor-pointer ${style.oneBox}`}
               >
                 <div className="mb-[40px]   w-[80px] h-[80px]  ">
-                  <p className="text-white text-[32px] md:text-[36px] lg:text-[45px]  h-[80px] flex items-center justify-center lin rounded-full ">
+                  <p
+                    className={`${style.lin} text-white text-[32px] md:text-[36px] lg:text-[45px]  h-[80px] flex items-center justify-center  rounded-full `}
+                  >
                     {value.numb}
                   </p>
                 </div>
                 <h1 className="text-[20px] ] text-white pb-[30px]">{value.header}</h1>
-                <p className="text-base text-[#b5b7b8] pb-[30px] parag">{value.parag}</p>
+                <p className={`text-base text-[#b5b7b8] pb-[30px]${style.parag}`}>{value.parag}</p>
               </motion.div>
             );
           })}
