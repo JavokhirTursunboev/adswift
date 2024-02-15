@@ -41,3 +41,5 @@ animation
 framer.animation
 next.ui
 scroll triger
+next auth
+auth

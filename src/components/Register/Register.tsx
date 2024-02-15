@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import { Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
+import LoginWith from "./SocialLogin/LoginWith";
 
 export default function App() {
   const [selected, setSelected] = React.useState<number | string>("login");
 
   return (
     <div className="container mx-auto flex flex-col w-full items-center justify-center mt-[80px]">
-      <Card className="max-w-full w-[540px] h-[400px]">
+      <Card className="max-w-full w-[540px] h-[450px]">
         <CardBody className="overflow-hidden">
           <Tabs
             fullWidth
@@ -33,6 +34,10 @@ export default function App() {
             <Tab as={Link} href="/signup" key="sign-up" title="Sign up"></Tab>
           </Tabs>
         </CardBody>
+        {/* Login with */}
+        <div className="mx-auto mb-[30px]">
+          <LoginWith />
+        </div>
       </Card>
     </div>
   );
