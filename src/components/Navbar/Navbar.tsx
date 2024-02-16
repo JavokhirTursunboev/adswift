@@ -29,7 +29,7 @@ export default function NavbarMain() {
     >
       <NavbarContent>
         <NavbarBrand>
-          <p className="font-bold text-inherit flex items-end text-[1rem] lg:text-[2rem]">
+          <Link href='/' className="font-bold text-inherit flex items-end text-[1rem] lg:text-[2rem]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -53,7 +53,7 @@ export default function NavbarMain() {
               ></path>
             </svg>
             AdSwift
-          </p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
