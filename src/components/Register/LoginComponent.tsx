@@ -3,7 +3,7 @@ import React from "react";
 import { Tabs, Tab, Input, Link, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
 import LoginWith from "./SocialLogin/LoginWith";
 
-export default function App() {
+export default function LoginComponent() {
   const [selected, setSelected] = React.useState<number | string>("login");
 
   return (
@@ -34,7 +34,7 @@ export default function App() {
             <Tab as={Link} href="/signup" key="sign-up" title="Sign up"></Tab>
           </Tabs>
         </CardBody>
-        {/* Login with */}
+        {/* ================================Login with ===================================*/}
         <div className="mx-auto mb-[30px]">
           <LoginWith />
         </div>

@@ -12,6 +12,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 export default function NavbarMain() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -105,6 +106,10 @@ export default function NavbarMain() {
             Sign Up
           </Button>
         </NavbarItem>
+        {/* ======================== sign out ================ */}
+        <NavbarItem>
+          <button onClick={() => signOut()}>SignOut</button>
+        </NavbarItem>
 
         {/* ======================== hamberuger button ====================================  */}
 
@@ -161,6 +166,10 @@ export default function NavbarMain() {
         <div className="flex items-center justify-between mt-10">
           <NavbarItem>
             <Link href="/login">Login</Link>
+          </NavbarItem>
+          {/* ======================== sign out ================ */}
+          <NavbarItem>
+            <button onClick={() => signOut()}>SignOut</button>
           </NavbarItem>
           <NavbarItem>
             <Button
