@@ -12,9 +12,11 @@ import {
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function NavbarMain() {
+  const { status } = useSession();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = ["Home", "Service", "Portfolio", "Contact", "Log Out"];
@@ -29,7 +31,7 @@ export default function NavbarMain() {
     >
       <NavbarContent>
         <NavbarBrand>
-          <Link href='/' className="font-bold text-inherit flex items-end text-[1rem] lg:text-[2rem]">
+          <Link href="/" className="font-bold text-inherit flex items-end text-[1rem] lg:text-[2rem]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -88,28 +90,38 @@ export default function NavbarMain() {
 
       {/* fOR SMALL SIZE */}
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/login" className={`link ${pathname === "/login" ? "text-red-500 font-bold  " : ""}`}>
-            Login
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={Link}
-            color="primary"
-            href="/signup"
-            variant="flat"
-            className={`hidden lg:flex text-black link ${
-              pathname === "/signup" ? "text-red-500 font-bold " : ""
-            }`}
-          >
-            Sign Up
-          </Button>
-        </NavbarItem>
-        {/* ======================== sign out ================ */}
-        <NavbarItem>
-          <button onClick={() => signOut()}>SignOut</button>
-        </NavbarItem>
+        {status === "unauthenticated" ? (
+          <>
+            <NavbarItem className="hidden lg:flex">
+              <Link
+                href="/login"
+                className={`link ${pathname === "/login" ? "text-red-500 font-bold  " : ""}`}
+              >
+                Login
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Button
+                as={Link}
+                color="primary"
+                href="/signup"
+                variant="flat"
+                className={`hidden lg:flex text-black link ${
+                  pathname === "/signup" ? "text-red-500 font-bold " : ""
+                }`}
+              >
+                Sign Up
+              </Button>
+            </NavbarItem>
+          </>
+        ) : (
+          <>
+            {/* ======================== sign out ================ */}
+            <NavbarItem>
+              <button onClick={() => signOut()}>SignOut</button>
+            </NavbarItem>
+          </>
+        )}
 
         {/* ======================== hamberuger button ====================================  */}
 
@@ -164,24 +176,33 @@ export default function NavbarMain() {
         </NavbarItem>
         <hr />
         <div className="flex items-center justify-between mt-10">
-          <NavbarItem>
-            <Link href="/login">Login</Link>
-          </NavbarItem>
-          {/* ======================== sign out ================ */}
-          <NavbarItem>
-            <button onClick={() => signOut()}>SignOut</button>
-          </NavbarItem>
-          <NavbarItem>
-            <Button
-              as={Link}
-              color="primary"
-              href="/signup"
-              variant="flat"
-              className={`text-black link ${pathname === "/signup" ? "text-red-500  " : ""}`}
-            >
-              Sign Up
-            </Button>
-          </NavbarItem>
+          {status === "unauthenticated" ? (
+            <>
+              <NavbarItem>
+                <Link href="/login">Login</Link>
+              </NavbarItem>
+
+              {/* ================= sign up ===================  */}
+              <NavbarItem>
+                <Button
+                  as={Link}
+                  color="primary"
+                  href="/signup"
+                  variant="flat"
+                  className={`text-black link ${pathname === "/signup" ? "text-red-500  " : ""}`}
+                >
+                  Sign Up
+                </Button>
+              </NavbarItem>
+            </>
+          ) : (
+            <>
+              {/* ======================== sign out ================ */}
+              <NavbarItem>
+                <button onClick={() => signOut()}>SignOut</button>
+              </NavbarItem>
+            </>
+          )}
         </div>
       </NavbarMenu>
     </Navbar>
