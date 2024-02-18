@@ -3,7 +3,9 @@ import GithubProvider from "next-auth/providers/github";
 import FacebookProvider from "next-auth/providers/facebook";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./connect";
+// import { PrismaClient } from "@prisma/client";
 
+// const prisma = new PrismaClient();
 export const authOption = {
   adapter: PrismaAdapter(prisma),
   providers: [
