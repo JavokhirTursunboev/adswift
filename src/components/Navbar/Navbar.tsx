@@ -77,6 +77,11 @@ export default function NavbarMain() {
           </Link>
         </NavbarItem>
         <NavbarItem>
+          <Link className={`link ${pathname === "/posts" ? "text-blue-600" : ""}`} href="/posts">
+            Posts
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
           <Link className={`link ${pathname === "/portfolio" ? "text-blue-600" : ""}`} href="/portfolio">
             Portfolio
           </Link>
@@ -142,6 +147,14 @@ export default function NavbarMain() {
             href="/about"
           >
             About
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            className={`link ${pathname === "/posts" ? "text-blue-600 font-bold ml-5 text-xxl" : ""}`}
+            href="/posts"
+          >
+            Posts
           </Link>
         </NavbarItem>
         <NavbarItem>
