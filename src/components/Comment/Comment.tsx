@@ -10,7 +10,7 @@ export const Comments = () => {
       </h1>
       {status === "authenticated" ? (
         <div className="flex items-center justify-between gap-[30px]">
-          <textarea placeholder="write a comment..." className="w-full p-[20px]" />
+          <textarea placeholder="write a comment..." className="w-full p-[20px]" id="comment" />
           <button
             type="submit"
             className=" py-[16px] px-[20px] bg-teal-900 text-white border-none rounded-lg cursor-pointer"

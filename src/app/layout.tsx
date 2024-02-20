@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider >
+        <AuthProvider>
           <Providers>
             <div className="  mx-auto  lg:px-0 ">
               <NavbarMain />

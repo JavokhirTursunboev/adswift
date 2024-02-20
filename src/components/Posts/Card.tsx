@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import PopOver from "./PopOver/PopOver";
+import LikeButton from "../GlobalComponents/likeButton/LikeButton";
+import { FaRegComment } from "react-icons/fa";
 
 export default function PostCard() {
   return (
@@ -13,11 +15,9 @@ export default function PostCard() {
         {/* text container */}
         <div className="flex-1 flex flex-col gap-[15px] xl:gap-[30px]">
           {/* ============= detail =============  */}
-          <div className="flex items-center justify-between">
+          <div>
             <span className="text-gray-500">11.02.2023</span>
-            <PopOver />
           </div>
-
           {/* =========== text title ============ */}
           <Link href="#">
             <h1 className=" md:text-[22px] xl:text-[28px] font-bold">
@@ -30,9 +30,19 @@ export default function PostCard() {
             inventore repellendus. Sit, accusantium!
           </p>
 
-          <Link href="#" className="border-b-1 border-crimson-500 w-max p-y ">
-            Read More
-          </Link>
+          {/* ================ like and read more =========== */}
+          <div className="flex items-center justify-between">
+            <Link href="#" className="border-b-1 border-crimson-500 w-max p-y ">
+              Read More
+            </Link>
+            <div className="flex items-center gap-4 ">
+              <LikeButton col="black" />
+              <Link href="#">
+                <FaRegComment className="text-black" />
+              </Link>
+              <PopOver color="black" />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -70,7 +80,13 @@ export default function PostCard() {
           >
             Read More
           </Link>
-          <PopOver />
+          <div className="flex items-center gap-4 ">
+            <LikeButton col="black" />
+            <Link href="#">
+              <FaRegComment className="text-black" />
+            </Link>
+            <PopOver color="black" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 "use client";
+import { FaRegShareSquare } from "react-icons/fa";
 
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
 import {
@@ -10,7 +11,7 @@ import {
   TelegramShareButton,
 } from "react-share";
 
-export default function PopOver() {
+export default function PopOver({ color }: { color: string }) {
   const shareUrl = "http://google.com";
   const title = "GitHub";
 
@@ -46,10 +47,8 @@ export default function PopOver() {
       }}
     >
       <PopoverTrigger>
-        <div className="px-2">
-          <div className="h-[3px] w-[3px]   bg-black mb-[3px] rounded-full"></div>
-          <div className="h-[3px] w-[3px]   bg-black mb-[3px] rounded-full"></div>
-          <div className="h-[3px] w-[3px]   bg-black mb-[3px] rounded-full"></div>
+        <div>
+          <FaRegShareSquare className={`text-${color}`} />
         </div>
       </PopoverTrigger>
       <PopoverContent>

@@ -1,5 +1,10 @@
 import { Comments } from "@/components/Comment/Comment";
 import Image from "next/image";
+import LikeButton from "./../../../components/GlobalComponents/likeButton/LikeButton";
+import { FaRegComment } from "react-icons/fa";
+import PopOver from "@/components/Posts/PopOver/PopOver";
+import Link from "next/link";
+
 export default function SinglePage() {
   return (
     <div className="bg-[#0f172a] px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
@@ -27,9 +32,28 @@ export default function SinglePage() {
                 <p className="text-white text-[14px]">01.01.2024</p>
               </div>
             </div>
+
+            <div className="flex items-center justify-between">
+              {/* ================= share side ===================== */}
+              <div className="flex items-center justify-end gap-5 mt-[20px] border-y-1 w-full py-5">
+                <LikeButton col="white" />
+                <Link href="#comments">
+                  <FaRegComment className="text-white " />
+                </Link>
+                <PopOver color="white" />
+              </div>
+            </div>
           </div>
-          {/* ======== main images ========== */} 
-          <Image src="/images/cactus.jpg" width={600} height={600} alt="idImage" priority  className='w-auto h-auto '/>
+
+          {/* ======== main images ========== */}
+          <Image
+            src="/images/cactus.jpg"
+            width={600}
+            height={600}
+            alt="idImage"
+            priority
+            className="w-auto h-auto "
+          />
         </div>
 
         {/*================= text============== */}
@@ -56,7 +80,9 @@ export default function SinglePage() {
         </div>
 
         {/* ============== comments ======= */}
-        <Comments />
+        <div id="comments">
+          <Comments />
+        </div>
       </div>
     </div>
   );
