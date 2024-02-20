@@ -151,7 +151,9 @@ export default function NavbarMain() {
         </NavbarItem>
         <NavbarItem>
           <Link
-            className={`link ${pathname === "/posts" ? "text-blue-600 font-bold ml-5 text-xxl" : ""}`}
+            className={`link ${
+              pathname === "/posts" ? "text-blue-600 font-bold ml-5 text-xxl" : ""
+            } text-xl `}
             href="/posts"
           >
             Posts
