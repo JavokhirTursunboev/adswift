@@ -1,12 +1,11 @@
 "use client";
 
 import { useSession, signIn } from "next-auth/react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function LoginWith() {
-  const { data, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   useEffect(() => {
     if (status === "authenticated") {
@@ -51,7 +50,7 @@ export default function LoginWith() {
           </svg>
         </button>
 
-        <button onClick={()=>signIn('facebook')}>
+        <button onClick={() => signIn("facebook")}>
           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
             <linearGradient
               id="Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1"
