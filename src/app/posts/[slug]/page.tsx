@@ -21,8 +21,11 @@ export default async function SinglePage(props: singlepageType) {
     <div className="bg-[#0f172a] px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
       <div className="container mx-auto">
         {/* header and image */}
-        <div className="flex flex-col gap-9 lg:flex-row md:items-center items-start justify-center pt-[50px] mb-[70px] ">
-          <div className="flex flex-col  md:gap-[30px] ">
+        <div
+          className="flex flex-col gap-9 lg:flex-row items-center 
+         justify-center pt-[50px] mb-[70px] "
+        >
+          <div className="flex flex-col  md:gap-[30px]  w-full">
             <h1
               className="text-white text-[32px] md:text-[54px] lg:text-[65px] md:leading-[50px]
              lg:leading-[60px]  font-bold mb-[20px] md:mb-[50px]"
@@ -44,9 +47,9 @@ export default async function SinglePage(props: singlepageType) {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between ">
               {/* ================= share side ===================== */}
-              <div className="flex items-center justify-end gap-5 mt-[20px] border-y-1 w-full py-5">
+              <div className="flex items-center justify-end gap-5 mt-[20px] border-y-2 w-full py-5">
                 <LikeButton col="white" />
                 <Link href="#comments">
                   <FaRegComment className="text-white " />
@@ -63,7 +66,7 @@ export default async function SinglePage(props: singlepageType) {
             height={600}
             alt="idImage"
             priority
-            className="w-auto h-auto "
+            className="w-auto h-auto  rounded-md"
           />
         </div>
 

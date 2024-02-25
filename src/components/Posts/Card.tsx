@@ -83,7 +83,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
         </div>
         <div className="p-6 pt-0 flex items-center justify-between">
           <Link
-            href="#"
+           href={`/posts/${item.slug}`}
             data-ripple-light="true"
             type="button"
             className="select-none 

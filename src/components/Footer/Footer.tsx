@@ -3,6 +3,7 @@ import { FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { easeIn, motion } from "framer-motion";
 import Link from "next/link";
+import { MdOutlineUnsubscribe } from "react-icons/md";
 
 export default function Footer() {
   return (
@@ -85,7 +86,10 @@ export default function Footer() {
                 type="submit"
                 className=" border-none bg-[#5AB424] text-white  rounded-[16px] px-4 md:py-[10px] md:px-[28px] "
               >
-                Subscribe
+
+              <span className='hidden md:block' >  Subscribe </span> 
+              <span className='block md:hidden' > <MdOutlineUnsubscribe />  </span> 
+              
               </button>
             </form>
           </div>
