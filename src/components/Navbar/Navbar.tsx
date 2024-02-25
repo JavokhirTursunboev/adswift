@@ -12,10 +12,10 @@ import {
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+
 
 export default function NavbarMain() {
-  const { status } = useSession();
+
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -95,8 +95,8 @@ export default function NavbarMain() {
 
       {/* fOR SMALL SIZE */}
       <NavbarContent justify="end">
-        {status === "unauthenticated" ? (
-          <>
+        
+        
             <NavbarItem className="hidden lg:flex">
               <Link
                 href="/login"
@@ -118,15 +118,13 @@ export default function NavbarMain() {
                 Sign Up
               </Button>
             </NavbarItem>
-          </>
-        ) : (
-          <>
+          
             {/* ======================== sign out ================ */}
             <NavbarItem>
-              <button onClick={() => signOut()}>SignOut</button>
+              <button >SignOut</button>
             </NavbarItem>
-          </>
-        )}
+          
+        
 
         {/* ======================== hamberuger button ====================================  */}
 
@@ -191,8 +189,8 @@ export default function NavbarMain() {
         </NavbarItem>
         <hr />
         <div className="flex items-center justify-between mt-10">
-          {status === "unauthenticated" ? (
-            <>
+         
+            
               <NavbarItem>
                 <Link href="/login">Login</Link>
               </NavbarItem>
@@ -209,15 +207,15 @@ export default function NavbarMain() {
                   Sign Up
                 </Button>
               </NavbarItem>
-            </>
-          ) : (
-            <>
+          
+         
+            
               {/* ======================== sign out ================ */}
               <NavbarItem>
-                <button onClick={() => signOut()}>SignOut</button>
+                <button>SignOut</button>
               </NavbarItem>
-            </>
-          )}
+          
+         
         </div>
       </NavbarMenu>
     </Navbar>

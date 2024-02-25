@@ -4,7 +4,6 @@ import "./globals.css";
 import NavbarMain from "@/components/Navbar/Navbar";
 import { Providers } from "./_Nextui/provider";
 import Footer from "@/components/Footer/Footer";
-import AuthProvider from "@/providers/AuthProvider";
 
 // done
 const inter = DM_Sans({ subsets: ["latin"] });
@@ -22,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider>
+        
           <Providers>
             <div className="  mx-auto  lg:px-0 ">
               <NavbarMain />
@@ -30,7 +29,7 @@ export default function RootLayout({
               <Footer />
             </div>
           </Providers>
-        </AuthProvider>
+        
       </body>
     </html>
   );

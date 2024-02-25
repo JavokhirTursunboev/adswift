@@ -4,31 +4,44 @@ import PopOver from "./PopOver/PopOver";
 import LikeButton from "../GlobalComponents/likeButton/LikeButton";
 import { FaRegComment } from "react-icons/fa";
 
-export default function PostCard() {
+type PostType = {
+  _id: string;
+  createdAt: string;
+
+  title: string;
+  desc: string;
+  img?: string;
+  views: number;
+};
+type PostCardProps = {
+  key: string;
+  item: PostType;
+};
+export default function PostCard({ item }: PostCardProps): JSX.Element {
   return (
     <div>
       <div className="mb-[50px] md:flex  hidden  items-center gap-[50px] ">
         {/* image container */}
         <div className=" flex-1 h-[350px] w-[350px] relative  ">
-          <Image src="/images/cactus.jpg" alt="post image" fill className="object-cover rounded-[10px]" />
+          <Image
+            src="/images/house.jpg"
+            alt="post image"
+            fill
+            className="object-cover rounded-[10px]"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
         {/* text container */}
         <div className="flex-1 flex flex-col gap-[15px] xl:gap-[30px]">
           {/* ============= detail =============  */}
           <div>
-            <span className="text-gray-500">11.02.2023</span>
+            <span className="text-gray-500">{item.createdAt.slice(0, 10)}</span>
           </div>
           {/* =========== text title ============ */}
           <Link href="#">
-            <h1 className=" md:text-[22px] xl:text-[28px] font-bold">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima.
-            </h1>
+            <h1 className=" md:text-[22px] xl:text-[28px] font-bold">{item.title}</h1>
           </Link>
-          <p className="xl:text-[18px] font-300 text-[#626262]">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia aliquam, harum sequi sapiente iste
-            culpa quis dignissimos voluptate blanditiis, et inventore repellendus. Sit, accusantium! et
-            inventore repellendus. Sit, accusantium!
-          </p>
+          <p className="xl:text-[18px] font-300 text-[#626262]">{item.desc}</p>
 
           {/* ================ like and read more =========== */}
           <div className="flex items-center justify-between">
@@ -57,14 +70,14 @@ export default function PostCard() {
           bg-clip-border text-white shadow-lg shadow-blue-gray-500/40
            bg-gradient-to-r from-blue-500 to-blue-600"
         >
-          <Image src="/images/cactus.jpg" alt="post image" fill className="object-cover" />
+          <Image src="/images/house.jpg" alt="post image" fill className="object-cover rounded-[10px]" />
         </div>
         <div className="p-6">
           <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-            Tailwind card
+            {item.title}
           </h5>
           <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis ligula.
+            {item.desc}
           </p>
         </div>
         <div className="p-6 pt-0 flex items-center justify-between">
