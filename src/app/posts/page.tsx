@@ -1,12 +1,13 @@
 import PostCard from "@/components/Posts/Card";
 
 type PostType = {
-  _id: string;
+  id: string;
   createdAt: string;
   title: string;
   desc: string;
   img?: string;
   views: number;
+  slug: string;
 };
 
 async function getData() {
@@ -30,7 +31,7 @@ export default async function Posts() {
         <div className="my-[50px] mx-0">
           {/* single card */}
           {data.map((item: PostType) => (
-            <PostCard key={item._id} item={item} />
+            <PostCard key={item.id} item={item} />
           ))}
         </div>
       </div>

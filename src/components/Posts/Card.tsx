@@ -5,9 +5,9 @@ import LikeButton from "../GlobalComponents/likeButton/LikeButton";
 import { FaRegComment } from "react-icons/fa";
 
 type PostType = {
-  _id: string;
+  id: string;
   createdAt: string;
-
+  slug: string;
   title: string;
   desc: string;
   img?: string;
@@ -38,14 +38,15 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
             <span className="text-gray-500">{item.createdAt.slice(0, 10)}</span>
           </div>
           {/* =========== text title ============ */}
-          <Link href="#">
-            <h1 className=" md:text-[22px] xl:text-[28px] font-bold">{item.title}</h1>
+          <Link href={`/posts/${item.id}`}>
+            <h1 className="md:text-[22px] xl:text-[28px] font-bold">{item.title}</h1>
           </Link>
+
           <p className="xl:text-[18px] font-300 text-[#626262]">{item.desc}</p>
 
           {/* ================ like and read more =========== */}
           <div className="flex items-center justify-between">
-            <Link href="#" className="border-b-1 border-crimson-500 w-max p-y ">
+            <Link href={`/posts/${item.slug}`} className="border-b-1 border-crimson-500 w-max p-y ">
               Read More
             </Link>
             <div className="flex items-center gap-4 ">

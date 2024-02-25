@@ -4,8 +4,19 @@ import LikeButton from "./../../../components/GlobalComponents/likeButton/LikeBu
 import { FaRegComment } from "react-icons/fa";
 import PopOver from "@/components/Posts/PopOver/PopOver";
 import Link from "next/link";
+import prisma from "@/utils/connect";
+interface singlepageType {
+  params: {
+    slug: string;
+  };
+}
+export default async function SinglePage(props: singlepageType) {
+  const findUser = await prisma.post.findUnique({
+    where: {
+      slug: props.params.slug,
+    },
+  });
 
-export default function SinglePage() {
   return (
     <div className="bg-[#0f172a] px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
       <div className="container mx-auto">
@@ -16,7 +27,7 @@ export default function SinglePage() {
               className="text-white text-[32px] md:text-[54px] lg:text-[65px] md:leading-[50px]
              lg:leading-[60px]  font-bold mb-[20px] md:mb-[50px]"
             >
-              This is inside of text header
+              {findUser?.title}
             </h1>
             {/* user */}
             <div className="flex gap-5">
@@ -58,25 +69,7 @@ export default function SinglePage() {
 
         {/*================= text============== */}
         <div className="mb-[40px] lg:mb-[80px]  ">
-          <p className="text-white text-[18px] align-center">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt deserunt voluptate provident
-            incidunt earum consequatur ex minus laborum quis optio vero, ratione dolorum pariatur est natus
-            dolorem dolores quibusdam, iste quam, delectus error ad quas tempore? Eius, modi eligendi sed
-            molestias culpa dolorem impedit dicta, reiciendis voluptatem, alias exercitationem molestiae
-            laborum totam iste tempora temporibus! Dolor optio, quae reprehenderit molestiae assumenda veniam
-            dolore fuga modi, natus eum et incidunt, id distinctio inventore. Unde, explicabo eius. Id veniam
-            odio itaque doloribus voluptatum eveniet magni sint possimus magnam saepe minus, dignissimos,
-            tenetur exercitationem vel, ex illo esse nobis corporis excepturi necessitatibus consequatur
-            debitis obcaecati dolor! Culpa, cupiditate porro nulla ipsam quisquam voluptatem itaque at odio
-            veniam iusto suscipit, reiciendis omnis expedita nam sunt ab consequuntur error enim officia
-            numquam quo accusantium. Quae similique a recusandae vero quas veritatis perferendis repudiandae
-            quo facilis nam unde modi magnam nulla, fugiat minima pariatur. Nemo at, cumque sequi, beatae
-            assumenda ipsum, nesciunt recusandae amet aliquid cupiditate eaque molestias harum exercitationem
-            laborum quis natus! Aliquam, tempora. Repellendus necessitatibus delectus ducimus at accusantium
-            consequatur explicabo veritatis consectetur fugit, vel earum tenetur saepe esse magnam vitae nam
-            perferendis repudiandae cumque nihil similique dolorem beatae temporibus! Dolorem officia error
-            voluptatum.{" "}
-          </p>
+          <p className="text-white text-[18px] align-center">{findUser?.desc}</p>
         </div>
 
         {/* ============== comments ======= */}
