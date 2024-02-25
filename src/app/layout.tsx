@@ -4,7 +4,6 @@ import "./globals.css";
 import NavbarMain from "@/components/Navbar/Navbar";
 import { Providers } from "./_Nextui/provider";
 import Footer from "@/components/Footer/Footer";
-
 // done
 const inter = DM_Sans({ subsets: ["latin"] });
 
@@ -21,15 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-          <Providers>
-            <div className="  mx-auto  lg:px-0 ">
-              <NavbarMain />
-              {children}
-              <Footer />
-            </div>
-          </Providers>
-        
+        <Providers>
+          <div className="  mx-auto  lg:px-0 ">
+            <NavbarMain />
+            {children}
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

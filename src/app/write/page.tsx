@@ -19,6 +19,7 @@ export default function Write() {
   }
   return (
     <div className="mx-auto container ">
+      
       <form action={writePost}>
         <div>
           <p>Title</p>

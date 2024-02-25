@@ -2,6 +2,7 @@ import Intro from "../components/HomePage/Intro/intro";
 
 import dynamic from "next/dynamic";
 
+
 const DynamicService = dynamic(() => import("./../components/HomePage/services/Service"), {
   loading: () => <p>loading...</p>,
 });
@@ -14,7 +15,7 @@ const DynamicFeature = dynamic(() => import("./../components/HomePage/FeatureCas
 
 export default function Home() {
   return (
-    <>
+   <>
       <div>
         <Intro />
       </div>
