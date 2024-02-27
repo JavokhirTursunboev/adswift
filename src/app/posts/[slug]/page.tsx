@@ -5,6 +5,7 @@ import { FaRegComment } from "react-icons/fa";
 import PopOver from "@/components/Posts/PopOver/PopOver";
 import Link from "next/link";
 import prisma from "@/utils/connect";
+import PopOverEdit from "./../../../components/Posts/PopOver/popOverEdit";
 interface singlepageType {
   params: {
     slug: string;
@@ -49,12 +50,19 @@ export default async function SinglePage(props: singlepageType) {
 
             <div className="flex items-center justify-between ">
               {/* ================= share side ===================== */}
-              <div className="flex items-center justify-end gap-5 mt-[20px] border-y-2 w-full py-5">
-                <LikeButton col="white" />
-                <Link href="#comments">
-                  <FaRegComment className="text-white " />
-                </Link>
-                <PopOver color="white" />
+              <div className="flex items-center justify-between  mt-[20px] border-y-2 w-full py-5">
+                <div className="flex gap-5 ">
+                  <LikeButton col="white" />
+                  <Link href="#comments">
+                    <FaRegComment className="text-white " />
+                  </Link>
+                  <PopOver color="white" />
+                </div>
+                {findUser?.slug && (
+                  <div>
+                    <PopOverEdit slug={findUser.slug} />
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -72,7 +80,10 @@ export default async function SinglePage(props: singlepageType) {
 
         {/*================= text============== */}
         <div className="mb-[40px] lg:mb-[80px]  ">
-          <p className="text-white text-[18px] align-center">{findUser?.desc}</p>
+          <div
+            className="text-white text-[18px] align-center"
+            dangerouslySetInnerHTML={{ __html: findUser?.desc || "" }}
+          />
         </div>
 
         {/* ============== comments ======= */}
