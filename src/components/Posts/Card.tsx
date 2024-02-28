@@ -42,7 +42,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
             <h1 className="md:text-[22px] xl:text-[38px] font-bold">{item.title}</h1>
      
 
-          <p className="xl:text-[18px] font-300 text-[#626262]" dangerouslySetInnerHTML={{ __html: item?.desc || "" }}  />
+          <div className="xl:text-[18px] font-300 text-[#626262]" dangerouslySetInnerHTML={{ __html: item?.desc || "" }}  />
 
           {/* ================ like and read more =========== */}
           <div className="flex items-center justify-between">
@@ -77,7 +77,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
           <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             {item.title}
           </h5>
-          <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased"dangerouslySetInnerHTML={{ __html: item?.desc || "" }}  />
+          <div className="block font-sans text-base font-light leading-relaxed text-inherit antialiased"dangerouslySetInnerHTML={{ __html: item?.desc || "" }}  />
         </div>
         <div className="p-6 pt-0 flex items-center justify-between">
           <Link

@@ -58,11 +58,11 @@ export default async function SinglePage(props: singlepageType) {
                   </Link>
                   <PopOver color="white" />
                 </div>
-                {findUser?.slug && (
+                
                   <div>
                     <PopOverEdit slug={findUser.slug} />
                   </div>
-                )}
+                
               </div>
             </div>
           </div>

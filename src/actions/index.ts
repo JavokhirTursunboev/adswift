@@ -10,3 +10,11 @@ export default async function editServer(slug: string, title: string, desc: stri
   });
   redirect(`/posts/${slug}`);
 }
+
+
+export async function deleteServer(slug:string){
+  await prisma.post.delete({
+    where:{slug}
+  })
+  redirect('/')
+}
