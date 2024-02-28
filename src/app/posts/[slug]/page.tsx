@@ -6,6 +6,7 @@ import PopOver from "@/components/Posts/PopOver/PopOver";
 import Link from "next/link";
 import prisma from "@/utils/connect";
 import PopOverEdit from "./../../../components/Posts/PopOver/popOverEdit";
+import Loading from "@/app/loading";
 interface singlepageType {
   params: {
     slug: string;
@@ -17,7 +18,9 @@ export default async function SinglePage(props: singlepageType) {
       slug: props.params.slug,
     },
   });
-
+if(!findUser){
+  return <Loading />
+}
   return (
     <div className="bg-[#0f172a] px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
       <div className="container mx-auto">

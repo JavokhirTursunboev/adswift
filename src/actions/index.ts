@@ -16,5 +16,5 @@ export async function deleteServer(slug:string){
   await prisma.post.delete({
     where:{slug}
   })
-  redirect('/')
+  redirect('/posts')
 }

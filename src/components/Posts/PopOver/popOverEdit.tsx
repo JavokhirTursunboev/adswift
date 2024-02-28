@@ -54,7 +54,7 @@ export default function PopOverEdit({ slug }: { slug: string }) {
                   Close
                 </Button>
                 <form action={deleteSingePost}>
-                  <Link href='/posts' className="text-red-600">Yes</Link>
+                  <button className="text-red-600">Yes</button>
                 </form>
               </ModalFooter>
             </>
