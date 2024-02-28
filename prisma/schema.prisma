@@ -39,7 +39,7 @@ model Portfolio {
 
 model Post {
   id      String    @id @default(cuid()) @map("_id")
-  slug String    @unique @default("uuid_generate_v4()")
+  slug String    @unique
   createdAt DateTime  @default(now())
   title    String
   desc      String
