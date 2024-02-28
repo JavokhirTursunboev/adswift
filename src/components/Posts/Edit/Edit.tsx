@@ -28,16 +28,16 @@ export default function QuillEditor({ editPost }: QuillEditorProps) {
   const editPostServer = editServer.bind(null, editPost.slug, title, description);
   return (
     <div className="flex flex-col gap-[20px] max-h-[700px]">
-      <div>
+      <div className='flex flex-col md:flex-row items-center md:justify-between ' >
         <input
           type="text"
           placeholder="Title"
-          className="p-[30px] text-[35px] lg:text-[50px]   border-none outline-none "
+          className="py-[30px] text-[25px] lg:text-[50px]   border-none outline-none "
           onChange={handleTitleChange}
           defaultValue={editPost.title}
         />
         <form action={editPostServer}>
-          <button type="submit">Publish</button>
+          <button type="submit" className='bg-green-500 py-2 px-4 border-none rounded-xl text-white ' >Publish</button>
         </form>
       </div>
 
