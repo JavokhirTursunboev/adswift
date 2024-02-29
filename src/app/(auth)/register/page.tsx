@@ -1,37 +1,53 @@
 import prisma from "@/utils/connect";
 import React from "react";
 import bcrypt from "bcrypt";
+import { z } from "zod";
+
+const isComplexPassword = (value: string): boolean => {
+  // Check if password contains at least one uppercase letter, one lowercase letter, and one digit
+  return /[A-Z]/.test(value) && /[a-z]/.test(value) && /\d/.test(value);
+};
+const schema = z.object({
+  username: z.string().min(3).max(50),
+  email: z.string().email(),
+  password: z.string().min(6, { message: 'Last name must be more than 6 character and at least one uppercase letter, one lowercase letter, and one digit' }).refine(isComplexPassword),
+  repeatPassword: z.string().min(6).refine(isComplexPassword)
+})
 
 export default function Register() {
    
     async function register(formData:FormData){
         'use server'
-        const username = formData.get('username') as string
-        const email = formData.get('email') as string
-        const password = formData.get('password') as string
-        const repeatPassword = formData.get('repeatPassword') as string
+       
+       const validatedData = schema.parse({
+
+          username :formData.get('username') as string,
+          email : formData.get('email') as string,
+          password : formData.get('password') as string,
+          repeatPassword : formData.get('repeatPassword') as string,
+       })
         
-        if(password !== repeatPassword){
-          return 'Passwords are not natch'
+        if(validatedData.password !== validatedData.repeatPassword){
+          return 'Passwords do not natch'
         }
         // create new user 
         try {
 
           const userCheck = await prisma.user.findUnique({
             where:{
-              username
+              username: validatedData.username
             }
           })
           if(userCheck){
-            return 'Username already exisists'
+            throw new Error("Username already exists");
           }
             const salt = await bcrypt.genSalt(10)
-            const hashedPassword = await bcrypt.hash(password, salt)
+            const hashedPassword = await bcrypt.hash(validatedData.password, salt)
             // create new user
             await prisma.user.create({
               data: {
-                username,
-                email,
+                username: validatedData.username,
+                email: validatedData.email,
                 password : hashedPassword,
                 
               },

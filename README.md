@@ -44,3 +44,4 @@ scroll triger
 next auth
 auth
 bycrpt
+zod
