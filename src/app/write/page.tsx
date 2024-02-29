@@ -1,6 +1,7 @@
 import prisma from "@/utils/connect";
 import { redirect } from "next/navigation";
 import slugify from "slugify"; // Import slugify library
+import { MdOutlinePublishedWithChanges } from "react-icons/md";
 
 export default function Write() {
   async function writePost(formData: FormData) {
@@ -24,15 +25,14 @@ export default function Write() {
     <div className="mx-auto container ">
       <form action={writePost}>
         <div>
-          <p>Title</p>
-          <input type="text" className="border border-black" name="title" />
+          <input type="text" className="py-[30px] text-[30px] md:text-[40px] xl:text-[50px]   border-none outline-none w-full  " placeholder="Title" name='title' />
         </div>
         <div>
-          <p>Context</p>
-          <input type="text" className="border border-black" name="desc" />
+         
+          <textarea rows={7} cols={36} className=" text-[18px] md:text-[20px]    border-none outline-none  w-full " placeholder="Context" name="desc" />
         </div>
 
-        <button type="submit"> Save </button>
+        <button type="submit" className="flex items-center gap-2 border-none bg-green-600 rounded-md px-5  py-2 text-white hover:text-yellow-500  "><MdOutlinePublishedWithChanges /> Save </button>
       </form>
     </div>
   );
