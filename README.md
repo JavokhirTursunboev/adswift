@@ -43,3 +43,4 @@ next.ui
 scroll triger
 next auth
 auth
+bycrpt

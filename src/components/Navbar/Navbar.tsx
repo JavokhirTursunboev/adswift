@@ -60,7 +60,7 @@ export default function NavbarMain() {
       </NavbarContent>
 
       {/* ! FOR LARGE SIZE */}
-      <NavbarContent className="hidden lg:flex gap-5 justify-center items-center ">
+      <NavbarContent className="hidden md:flex gap-5 justify-center items-center ">
         <NavbarItem>
           <Link className={`link ${pathname === "/" ? "text-blue-600" : ""}`} href="/">
             Home
@@ -97,7 +97,7 @@ export default function NavbarMain() {
       <NavbarContent justify="end">
         
         
-            <NavbarItem className="hidden lg:flex">
+            <NavbarItem className="hidden md:flex">
               <Link
                 href="/login"
                 className={`link ${pathname === "/login" ? "text-red-500 font-bold  " : ""}`}
@@ -109,10 +109,10 @@ export default function NavbarMain() {
               <Button
                 as={Link}
                 color="primary"
-                href="/signup"
+                href="/register"
                 variant="flat"
-                className={`hidden lg:flex text-black link ${
-                  pathname === "/signup" ? "text-red-500 font-bold " : ""
+                className={`hidden md:flex text-black link ${
+                  pathname === "/register" ? "text-red-500 font-bold " : ""
                 }`}
               >
                 Sign Up
@@ -128,7 +128,7 @@ export default function NavbarMain() {
 
         {/* ======================== hamberuger button ====================================  */}
 
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="lg:hidden" />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="md:hidden" />
       </NavbarContent>
       <NavbarMenu className="text-center">
         <NavbarItem>
