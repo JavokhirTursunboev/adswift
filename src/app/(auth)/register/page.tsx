@@ -1,32 +1,35 @@
 'use client'
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { RegisterServer } from "@/actions"; // Assuming this import is correctly defined
-import { redirect } from "next/navigation";
 
 export default function Register() {
+  const router = useRouter()
   const { register, handleSubmit, formState: { errors }, watch} = useForm();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null); 
 
   const onSubmit = async (data:any) => {
-    setIsSubmitting(true);
-    try {
-     const response = await RegisterServer(data);
-     if(response.error){
-      setServerError(response.error)
-     }else{
-      setIsSubmitting(false);
-     }
-      console.log('Registration successful');
-      setIsSubmitting(false);
-      redirect('/')
-      // Redirect to homepage or show success message
-    } catch (error) {
-      console.error('Error registering user:', error);
-      setIsSubmitting(false);
-      // Handle error (e.g., display error message to the user)
+    
+     const response = await fetch('api/user',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    
+    if(response.ok){
+      router.push('/login')
+    }else{
+      const responseData = await response.json();
+
+      if (responseData.error) {
+        setServerError(responseData.error); // Set server error message
+    } else {
+        setServerError('Failed to register user'); // Default error message
     }
+    }
+    
   }
 
   // Watch the password field to compare with repeatPassword
@@ -58,7 +61,7 @@ export default function Register() {
           <input
             {...register('password', {
               required: 'Password is required',
-              minLength: { value: 6, message: 'Password must be at least 6 characters' }
+              minLength: { value: 8, message: 'Password must be at least 8 characters' }
             })}
             type='password' name='password' placeholder='Password' className="px-[20px] py-[10px] border-b-2  outline-none focus:border-b-black"
           />
@@ -75,7 +78,7 @@ export default function Register() {
 
            {serverError && <span className="text-red-500">{serverError}</span>}
 
-          <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">{isSubmitting ? 'Submitting...' : 'Register'}</button>
+          <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">SignUp</button>
         </form>
       </div>
     </div>

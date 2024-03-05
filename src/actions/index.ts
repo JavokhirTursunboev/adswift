@@ -2,7 +2,7 @@
 
 import prisma from "@/utils/connect";
 import { redirect } from "next/navigation";
-import bcrypt from 'bcryptjs'
+import  bcrypt  from 'bcrypt';
 
 
 export default async function editServer(slug: string, title: string, desc: string) {
@@ -68,26 +68,3 @@ export async function RegisterServer(data:{
 
 // Login
 
-export const  LoginServer = async (credentials:{
-  email:string,
-  password:string
-})=>{
-  try {
-    const findUser= await prisma.user.findFirst({
-      where: {email: credentials.email}
-    })
-    if(!findUser){
-      throw new Error('wrong credentials')
-    }
-    const isPasswordCorrect = await bcrypt.compare(
-      credentials.password,
-      findUser.password
-    )
-    if(!isPasswordCorrect){
-      throw new Error('Wrong credentials')
-    }
-  return findUser
-    } catch (error) {
-      console.log(error)
-  }
-}
