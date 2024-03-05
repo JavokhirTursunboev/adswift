@@ -8,7 +8,10 @@ import { z } from "zod"
 const userSchema = z.object({
     username: z.string().min(3, 'Username is required').max(18),
     email: z.string().min(3,"Email is required").email('Invalid emaild'),
-    password: z.string().min(1, 'Passoword is required').min(8, 'Passoword must have more than 8 characters')
+    password: z.string()
+        .min(1, 'Password is required')
+        .min(8, 'Password must have more than 8 characters')
+        .refine(value => /^(?=.*[0-9])/.test(value), 'Password must contain at least one lowercase letter and number'),
 })
 export async function POST(req:Request) {
     try {

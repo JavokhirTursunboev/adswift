@@ -61,7 +61,8 @@ export default function Register() {
           <input
             {...register('password', {
               required: 'Password is required',
-              minLength: { value: 8, message: 'Password must be at least 8 characters' }
+              pattern: {value: /^(?=.*[0-9])/, message: 'Password must contain at least one lowercase letter and number' },
+              minLength: { value: 8 , message: 'Password must be at least 8 characters' }
             })}
             type='password' name='password' placeholder='Password' className="px-[20px] py-[10px] border-b-2  outline-none focus:border-b-black"
           />
