@@ -12,6 +12,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import UserPage from "./UserPage";
 
 
 export default function NavbarMain() {
@@ -121,7 +122,7 @@ export default function NavbarMain() {
           
             {/* ======================== sign out ================ */}
             <NavbarItem>
-              <button >SignOut</button>
+                  <UserPage />
             </NavbarItem>
           
         
