@@ -8,15 +8,18 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Button,
+  User,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import UserPage from "./UserPage";
+import { IoIosLogOut } from "react-icons/io";
+import { signOut } from "next-auth/react";
 
 
 export default function NavbarUI({session}:any) {
-    console.log(session)
+ 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -135,7 +138,61 @@ export default function NavbarUI({session}:any) {
 
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="md:hidden" />
       </NavbarContent>
-      <NavbarMenu className="text-center">
+      <NavbarMenu className="text-start">
+    
+    {session?.user ? 
+      <div className='flex  justify-between items-center ' >
+   <div className='flex items-center gap-3'>
+      <User
+            as="button"
+            name=''
+            avatarProps={{
+              isBordered: true,
+              src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+            }}
+            className="transition-transform"
+           
+          
+            /> 
+         <div className='flex flex-col'>
+            <p>{session?.user.username}</p>
+          <p className='text-[12px] text-slate-400 ' >{session?.user.email}</p>
+          </div>
+   </div>       
+          <NavbarItem>
+                <button onClick={()=>signOut()}  className='text-lg' > <IoIosLogOut /></button>
+              </NavbarItem>
+      </div>
+          :
+          <div className="flex items-center justify-between ">
+         
+            
+          <NavbarItem>
+            <Link href="/login">Login</Link>
+          </NavbarItem>
+
+          {/* ================= sign up ===================  */}
+          <NavbarItem>
+            <Button
+              as={Link}
+              color="primary"
+              href="/signup"
+              variant="flat"
+              className={`text-black link ${pathname === "/signup" ? "text-red-500  " : ""}`}
+            >
+              Sign Up
+            </Button>
+          </NavbarItem>
+      
+     
+        
+          {/* ======================== sign out ================ */}
+         
+      
+     
+    </div>
+          }
+           <hr className=' my-5' />
         <NavbarItem>
           <Link
             className={`link ${pathname === "/" ? "text-blue-600 font-bold ml-5 text-xxl" : ""} text-xl`}
@@ -192,36 +249,8 @@ export default function NavbarUI({session}:any) {
             Contact
           </Link>
         </NavbarItem>
-        <hr />
-        <div className="flex items-center justify-between mt-10">
-         
-            
-              <NavbarItem>
-                <Link href="/login">Login</Link>
-              </NavbarItem>
-
-              {/* ================= sign up ===================  */}
-              <NavbarItem>
-                <Button
-                  as={Link}
-                  color="primary"
-                  href="/signup"
-                  variant="flat"
-                  className={`text-black link ${pathname === "/signup" ? "text-red-500  " : ""}`}
-                >
-                  Sign Up
-                </Button>
-              </NavbarItem>
-          
-         
-            
-              {/* ======================== sign out ================ */}
-              <NavbarItem>
-                <button>SignOut</button>
-              </NavbarItem>
-          
-         
-        </div>
+       
+       
       </NavbarMenu>
     </Navbar>
   );

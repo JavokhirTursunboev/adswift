@@ -1,9 +1,10 @@
 import React from "react";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, User} from "@nextui-org/react";
+import { signOut } from "next-auth/react";
 
 export default function App({session}:any) {
   return (
-    <div className="flex items-center gap-4">
+    <div className=" hidden  md:flex items-center gap-4">
    
       <Dropdown placement="bottom-start">
         <DropdownTrigger>
@@ -34,7 +35,10 @@ export default function App({session}:any) {
             Help & Feedback
           </DropdownItem>
           <DropdownItem key="logout" color="danger">
+         <button onClick={() => signOut()} >
+          
             Log Out
+          </button> 
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>

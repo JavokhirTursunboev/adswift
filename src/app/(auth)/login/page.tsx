@@ -3,11 +3,12 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
 export default function Register() {
   const router = useRouter()
   const { register, handleSubmit, formState: { errors },} = useForm();
-  const [serverError, setServerError] = useState<string | null>(null); 
+  const { isOpen, onOpen, onClose } = useDisclosure(); // Hook for controlling modal visibility
 
   const onSubmit = async (data:any) => {
     
@@ -18,9 +19,10 @@ export default function Register() {
    })
     
    if(signInData?.error){
-    console.log(signInData.error)
+    onOpen()
    }else{
-    router.push('/')
+     router.push('/')
+     router.refresh()
    }
   }
 
@@ -28,7 +30,7 @@ export default function Register() {
 
   return (
     <div className='flex items-center container mx-auto mt-8'>
-      <div className="w-[500px] p-[50px] flex flex-col text-center gap-[30px] rounded-md mx-auto border-2  extrashadow ">
+      <div className=" md:w-[500px] p-[50px] flex flex-col text-center gap-[30px] rounded-md mx-auto border-2  extrashadow ">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col text-center gap-[30px]">
          
 
@@ -51,11 +53,22 @@ export default function Register() {
           {errors.password && <span className="text-red-500">{(errors.password.message as string)}</span>}
 
 
-           {serverError && <span className="text-red-500">{serverError}</span>}
 
-          <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">SignUp</button>
+          <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">Login</button>
         </form>
       </div>
+      {/* error */}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          <ModalHeader>Error</ModalHeader>
+          <ModalBody>
+            <p>OOPs! Invalid email or password</p>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={onClose}>OK</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </div>
   );
 }
