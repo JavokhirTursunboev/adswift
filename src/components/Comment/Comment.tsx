@@ -1,14 +1,18 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from 'next-auth/react';
+import { FaSignInAlt } from "react-icons/fa";
 
 export const Comments = () => {
-  const status = "authenticated";
+  const status = useSession()
+  console.log(status)
   return (
     <div className=" container mb-[50px]">
       <h1 className="text-[#f0f0f0] mb-[30px] text-[32px] md:text-[50px] lg:text-[55px] font-semibold ">
         Comment
       </h1>
-      {status === "authenticated" ? (
+      {status.status === "authenticated" ? (
         <div className="flex items-center justify-between gap-[30px]">
           <textarea placeholder="write a comment..." className="w-full p-[20px]" id="comment" />
           <button
@@ -19,7 +23,7 @@ export const Comments = () => {
           </button>
         </div>
       ) : (
-        <Link href="/login">Login to write a comment</Link>
+        <Link href="/login" className='text-red-600 text-[20px] md:text-[28px] underline flex items-center gap-5 '> <FaSignInAlt /> Login to write a comment</Link>
       )}
 
       {/* === all comments === */}

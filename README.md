@@ -37,6 +37,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 i use
 Swiper.js
+prisma
+typescript
+next.js
 animation
 framer.animation
 next.ui
@@ -45,3 +48,4 @@ next auth
 auth
 bycrpt
 zod
+swr

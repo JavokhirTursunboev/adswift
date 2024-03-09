@@ -10,6 +10,7 @@ type PostType = {
   img?: string;
   views: number;
   slug: string;
+  userEmail: string;
 };
 
 async function getData() {

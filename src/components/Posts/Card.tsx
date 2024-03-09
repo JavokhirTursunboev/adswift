@@ -12,6 +12,7 @@ type PostType = {
   desc: string;
   img?: string;
   views: number;
+  userEmail: string;
 };
 type PostCardProps = {
   key: string;
