@@ -46,8 +46,8 @@ if(!findUser){
                 className="rounded-full "
               />
               <div>
-                <p className="text-white font-[500] ">Javokhir Tursunboev</p>
-                <p className="text-white text-[14px]">01.01.2024</p>
+                <p className="text-white font-[500] ">{findUser?.postUsername}</p>
+                <p className="text-white text-[14px]">{String(findUser?.createdAt).slice(0, 10)}</p>
               </div>
             </div>
 

@@ -4,7 +4,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 
 type PostType = {
   id: string;
-  createdAt: string;
+  createdAt: Date;
   title: string;
   desc: string;
   img?: string;

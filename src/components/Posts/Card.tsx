@@ -6,7 +6,7 @@ import { FaRegComment } from "react-icons/fa";
 
 type PostType = {
   id: string;
-  createdAt: string;
+  createdAt: Date;
   slug: string;
   title: string;
   desc: string;
@@ -36,7 +36,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
         <div className="flex-1 flex flex-col gap-[15px] xl:gap-[30px]">
           {/* ============= detail =============  */}
           <div>
-            <span className="text-gray-500">{item.createdAt.slice(0, 10)}</span>
+            <span className="text-gray-500">{String(item?.createdAt).slice(0, 10)}</span>
           </div>
           {/* =========== text title ============ */}
           

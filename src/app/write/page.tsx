@@ -2,6 +2,8 @@ import prisma from "@/utils/connect";
 import { redirect } from "next/navigation";
 import slugify from "slugify"; // Import slugify library
 import { MdOutlinePublishedWithChanges } from "react-icons/md";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export default function Write() {
   async function writePost(formData: FormData) {
@@ -10,13 +12,24 @@ export default function Write() {
     const desc = formData.get("desc") as string;
     const slug = slugify(title, { lower: true });
 
-    // create new record
-
+      // Get the server session
+    const session = await getServerSession(authOptions);
+    console.log(session)
+    // Check if userEmail is available
+    const userEmail = session?.user?.email;
+    const postUsername = session?.user.username
+    if (!userEmail || !postUsername ) {
+      console.error("User email is not available.");
+      return;
+    }
+   
     const createPost = await prisma.post.create({
       data: {
         title,
         desc,
         slug,
+        userEmail: userEmail,
+        postUsername: postUsername
       },
     });
     redirect("/posts");

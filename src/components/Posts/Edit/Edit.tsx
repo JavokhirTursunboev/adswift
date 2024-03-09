@@ -6,7 +6,7 @@ import "react-quill/dist/quill.bubble.css";
 interface typeEdit {
   id: string;
   slug: string;
-  createdAt: Date;
+  createdAt: string;
   title: string;
   desc: string;
   img: string | null;
