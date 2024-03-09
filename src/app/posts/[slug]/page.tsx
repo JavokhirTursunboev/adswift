@@ -7,6 +7,8 @@ import Link from "next/link";
 import prisma from "@/utils/connect";
 import PopOverEdit from "./../../../components/Posts/PopOver/popOverEdit";
 import Loading from "@/app/loading";
+import moment from 'moment'; // Import moment.js library
+
 interface singlepageType {
   params: {
     slug: string;
@@ -21,8 +23,9 @@ export default async function SinglePage(props: singlepageType) {
 if(!findUser){
   return <Loading />
 }
+console.log(findUser.slug)
   return (
-    <div className="bg-[#0f172a] px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
+    <div className=" px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
       <div className="container mx-auto">
         {/* header and image */}
         <div
@@ -31,7 +34,7 @@ if(!findUser){
         >
           <div className="flex flex-col  md:gap-[30px]  w-full">
             <h1
-              className="text-white text-[32px] md:text-[54px] lg:text-[65px] md:leading-[50px]
+              className=" text-black text-[32px] md:text-[54px] lg:text-[65px] md:leading-[50px]
              lg:leading-[60px]  font-bold mb-[20px] md:mb-[50px]"
             >
               {findUser?.title}
@@ -46,8 +49,8 @@ if(!findUser){
                 className="rounded-full "
               />
               <div>
-                <p className="text-white font-[500] ">{findUser?.postUsername}</p>
-                <p className="text-white text-[14px]">{String(findUser?.createdAt).slice(0, 10)}</p>
+                <p className=" text-black font-[500] ">{findUser?.postUsername}</p>
+                <p className=" text-black text-[14px]">{moment(findUser.createdAt).subtract(10, 'days').calendar()}</p>
               </div>
             </div>
 
@@ -55,15 +58,15 @@ if(!findUser){
               {/* ================= share side ===================== */}
               <div className="flex items-center justify-between  mt-[20px] border-y-2 w-full py-5">
                 <div className="flex gap-5 ">
-                  <LikeButton col="white" />
+                  <LikeButton col="black" />
                   <Link href="#comments">
-                    <FaRegComment className="text-white " />
+                    <FaRegComment className=" text-black " />
                   </Link>
-                  <PopOver color="white" />
+                  <PopOver color="black" />
                 </div>
 
                 <div>
-                  <PopOverEdit slug={findUser.slug} />
+                  <PopOverEdit slug={findUser.slug}  />
                 </div>
               </div>
             </div>
@@ -83,14 +86,14 @@ if(!findUser){
         {/*================= text============== */}
         <div className="mb-[40px] lg:mb-[80px]  ">
           <div
-            className="text-white text-[18px] align-center"
+            className=" text-black text-[18px] align-center"
             dangerouslySetInnerHTML={{ __html: findUser?.desc || "" }}
           />
         </div>
 
         {/* ============== comments ======= */}
         <div id="comments">
-          <Comments />
+          <Comments postSlug={ findUser.slug } />
         </div>
       </div>
     </div>

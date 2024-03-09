@@ -22,17 +22,17 @@ export default function PopOverEdit({ slug }: { slug: string }) {
     <div className="px-1 py-2 flex gap-3">
       <Link
         href={`/posts/${slug}/edit`}
-        className="text-small font-bold flex items-center  text-white
+        className="text-small font-bold flex items-center  text-black
              gap-1 cursor-pointer hover:text-blue-500 "
       >
         <LiaEdit className="text-[20px]" />
       </Link>
       <div
-        className="text-small font-bold flex items-center gap-1 text-white
+        className="text-small font-bold flex items-center gap-1 text-black
              cursor-pointer  hover:text-red-500 "
         onClick={onOpen}
       >
-        <RiDeleteBin5Line className="text-[20px]" />
+        <RiDeleteBin5Line className="text-[20px]  " />
       </div>
 
       <Modal
