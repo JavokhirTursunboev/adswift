@@ -64,7 +64,7 @@ export const Comments = ({postSlug}:{ postSlug : string }) => {
       {isLoading ? (
         'Loading...'
       ) : (
-        data.map((item:{
+        data.slice().reverse().map((item:{
           id:string,
           name:string,
           createdAt:Date,

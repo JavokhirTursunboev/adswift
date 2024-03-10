@@ -8,13 +8,18 @@ import prisma from "@/utils/connect";
 import PopOverEdit from "./../../../components/Posts/PopOver/popOverEdit";
 import Loading from "@/app/loading";
 import moment from 'moment'; // Import moment.js library
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth"
+
 
 interface singlepageType {
   params: {
     slug: string;
   };
 }
+
 export default async function SinglePage(props: singlepageType) {
+  const signupuser = await getServerSession(authOptions)
   const findUser = await prisma.post.findUnique({
     where: {
       slug: props.params.slug,
@@ -23,7 +28,7 @@ export default async function SinglePage(props: singlepageType) {
 if(!findUser){
   return <Loading />
 }
-console.log(findUser.slug)
+
   return (
     <div className=" px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
       <div className="container mx-auto">
@@ -50,7 +55,7 @@ console.log(findUser.slug)
               />
               <div>
                 <p className=" text-black font-[500] ">{findUser?.postUsername}</p>
-                <p className=" text-black text-[14px]">{moment(findUser.createdAt).subtract(10, 'days').calendar()}</p>
+                <p className=" text-zinc-400 text-[12px]">{moment(findUser.createdAt).subtract(10, 'days').calendar()}</p>
               </div>
             </div>
 
@@ -66,7 +71,7 @@ console.log(findUser.slug)
                 </div>
 
                 <div>
-                  <PopOverEdit slug={findUser.slug}  />
+                {findUser?.postUsername === signupuser?.user?.username && <PopOverEdit slug={findUser.slug}  />}
                 </div>
               </div>
             </div>

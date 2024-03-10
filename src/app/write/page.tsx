@@ -14,7 +14,7 @@ export default function Write() {
 
       // Get the server session
     const session = await getServerSession(authOptions);
-    console.log(session)
+    
     // Check if userEmail is available
     const userEmail = session?.user?.email;
     const postUsername = session?.user.username
