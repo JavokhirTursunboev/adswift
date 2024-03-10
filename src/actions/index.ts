@@ -11,9 +11,12 @@ export default async function editServer(slug: string, title: string, desc: stri
 }
 
 
-export async function deleteServer(slug:string){
+export async function deleteServer( slug:string){
+  await prisma.comment.deleteMany({
+    where: { postSlug: slug },
+  });
   await prisma.post.delete({
-    where:{slug}
+    where: { slug: slug },
   })
   redirect('/posts')
 }

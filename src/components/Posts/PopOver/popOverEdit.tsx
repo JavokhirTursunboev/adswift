@@ -50,11 +50,11 @@ export default function PopOverEdit({ slug }: { slug: string }) {
                 <p>Are you sure delete the Post ?</p>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+                <button className="text-black mr-5 hover:text-blue-500 hover:font-bold">
                   Close
-                </Button>
+                </button>
                 <form action={deleteSingePost}>
-                  <button className="text-red-600">Yes</button>
+                  <button className="text-red-400 hover:text-red-600 hover:font-bold">Yes</button>
                 </form>
               </ModalFooter>
             </>
