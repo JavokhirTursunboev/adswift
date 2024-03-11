@@ -70,7 +70,7 @@ export default function Page() {
     <main ref={container} className="mt-[50px] mb-[100vh] my-auto">
       {portfolios.map((item, i): ReactNode => {
         const targetScale = 1 - (portfolios.length - i) * 0.05;
-
+          
         return (
           <Card
             key={item._id}
@@ -80,7 +80,8 @@ export default function Page() {
             description={item.description}
             color={item.color}
             title={item.title}
-            link="not added " // add this line
+            link={item.link}
+            // add this line
             range={[i * 0.25, 1]}
             targetScale={targetScale}
           />

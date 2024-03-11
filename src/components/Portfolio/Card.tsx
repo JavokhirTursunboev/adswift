@@ -19,7 +19,7 @@ export default function Card({
   title,
   description,
   img,
-
+  link,
   color,
   progress,
   range,
@@ -33,6 +33,7 @@ export default function Card({
   });
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
+  
   return (
     <div
       ref={container}
@@ -45,13 +46,13 @@ export default function Card({
         className="bg-[color]
          flex
          flex-col relative lg:top-[-10] top-[-10%]
-          h-[500px] w-[1000px]
+          h-[600px] w-[1000px]
            rounded-[25px] p-[20px] lg:p-[50px]
             transform-origin-top"
       >
         {/* Image for Phone */}
-        <div className=" md:hidden   relative w-full h-full rounded-[25px] overflow-hidden">
-          <motion.div style={{ scale: imageScale }} className="w-full h-full">
+        <div className=" md:hidden   relative w-full h-full rounded-[25px] overflow-hidden ">
+          <motion.div style={{ scale: imageScale }} className="w-full h-full ">
             <Image
               fill
               src={img}
@@ -61,13 +62,13 @@ export default function Card({
             />
           </motion.div>
         </div>
-        <h2 className="text-center text-[22px] md:text-[28px] mt-[20px] ">{title}</h2>
+        <h2 className="text-center  font-bold text-[28px] md:text-[38px] lg:text-[48px] mt-[20px] drop-shadow-[0_1.2px_1.2px_rgba(255,0,0,0.8)]">{title}</h2>
         {/* body */}
         <div className="flex flex-col md:flex-row h-full md:mt-[50px]  gap-[50px]">
           <div className=" w-full md:w-[40%] relative top-[10%]">
-            <p className="text-[13px] md:text-[16px]">{description}</p>
-            <span className="flex items-center gap-[5px] ">
-              <a href="#" target="_blank" className="text-[12px] underline cursor-pointer">
+            <p className="text-[14px] md:text-[16px]">{description}</p>
+            <span className="flex items-center gap-[5px] py-8">
+              <a href={link} target="_blank" className="text-[12px] text-blue-700 underline cursor-pointer">
                 See more
               </a>
             </span>

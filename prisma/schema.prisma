@@ -70,7 +70,7 @@ model Portfolio {
   color String?
   title String
   img   String?
- 
+  link String?
 }
 
 
