@@ -31,7 +31,7 @@ const getData =async (slug:string) => {
 export default async function SinglePage({params}: singlepageType) {
   const {slug} = params
   const data = await getData(slug)
-  console.log(data)
+  
   const signupuser = await getServerSession(authOptions)
   
 
