@@ -51,7 +51,7 @@ model User {
   Post Post[]
    Comment       Comment[]
 
-   @@unique([email, username])
+   
 }
 
 model VerificationToken {
@@ -82,10 +82,8 @@ model Post {
   desc      String
   img       String?
   views     Int       @default(0)
-  userEmail String
-  postUsername String 
-  
-  user      User      @relation(fields: [userEmail, postUsername], references: [email, username])
+  userEmail String  
+  user      User      @relation(fields: [userEmail], references: [email])
   comments  Comment[]
 }
 

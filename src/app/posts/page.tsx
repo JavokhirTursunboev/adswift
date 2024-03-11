@@ -39,7 +39,7 @@ export default async function Posts() {
         {/* posts */}
         <div className="my-[50px] mx-0">
           {/* single card */}
-          {data.map((item: PostType) => (
+          {data.reverse().map((item: PostType) => (
             <PostCard key={item.id} item={item} />
           ))}
         </div>

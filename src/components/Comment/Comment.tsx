@@ -76,7 +76,7 @@ export const Comments = ({postSlug}:{ postSlug : string }) => {
               {/* ============= User of comments ================ */}
               <div className="flex items-center gap-3 mb-[20px] ">
                 <Image
-                  src="/AboutComment/testimonial-1.png"
+                  src={ item?.user.image || `/defaults/defaultUser.png`}
                   height={40}
                   width={40}
                   alt="user"

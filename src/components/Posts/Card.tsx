@@ -25,11 +25,12 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
         {/* image container */}
         <div className=" flex-1 h-[350px] w-[350px] relative  ">
           <Image
-            src="/images/house.jpg"
+           src={item?.img || "/images/default.png"} // change to late
             alt="post image"
             fill
             className="object-cover rounded-[10px]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            
           />
         </div>
         {/* text container */}
@@ -43,7 +44,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
             <h1 className="md:text-[22px] xl:text-[38px] font-bold">{item.title}</h1>
      
 
-          <div className="xl:text-[18px] font-300 text-[#626262]" dangerouslySetInnerHTML={{ __html: item?.desc || "" }}  />
+          <div className="xl:text-[18px] font-300 text-[#626262]" dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) || "" }}  />
 
           {/* ================ like and read more =========== */}
           <div className="flex items-center justify-between">
@@ -72,7 +73,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
           bg-clip-border text-white shadow-lg shadow-blue-gray-500/40
            bg-gradient-to-r from-blue-500 to-blue-600"
         >
-          <Image src="/images/house.jpg" alt="post image" fill className="object-cover rounded-[10px]" />
+          <Image  src={item?.img || "/images/house.jpg"} alt="post image" fill className="object-cover rounded-[10px]" />
         </div>
         <div className="p-6">
           <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">

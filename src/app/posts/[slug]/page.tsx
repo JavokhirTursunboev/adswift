@@ -4,9 +4,7 @@ import LikeButton from "./../../../components/GlobalComponents/likeButton/LikeBu
 import { FaRegComment } from "react-icons/fa";
 import PopOver from "@/components/Posts/PopOver/PopOver";
 import Link from "next/link";
-import prisma from "@/utils/connect";
 import PopOverEdit from "./../../../components/Posts/PopOver/popOverEdit";
-import Loading from "@/app/loading";
 import moment from 'moment'; // Import moment.js library
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth"
@@ -18,16 +16,24 @@ interface singlepageType {
   };
 }
 
-export default async function SinglePage(props: singlepageType) {
-  const signupuser = await getServerSession(authOptions)
-  const findUser = await prisma.post.findUnique({
-    where: {
-      slug: props.params.slug,
-    },
-  });
-if(!findUser){
-  return <Loading />
+const getData =async (slug:string) => {
+  const res = await fetch(
+    `http://localhost:3000/api/posts/${slug}`,{
+      cache:'no-store'
+    }
+  )
+  if(!res.ok){
+    throw new Error('Failed')
+  }
+  return res.json()
 }
+
+export default async function SinglePage({params}: singlepageType) {
+  const {slug} = params
+  const data = await getData(slug)
+  console.log(data)
+  const signupuser = await getServerSession(authOptions)
+  
 
   return (
     <div className=" px-[20px] md:px-[30px] xxl:px-0 pb-[50px] lg:py-[80px]">
@@ -42,20 +48,20 @@ if(!findUser){
               className=" text-black text-[32px] md:text-[54px] lg:text-[65px] md:leading-[50px]
              lg:leading-[60px]  font-bold mb-[20px] md:mb-[50px]"
             >
-              {findUser?.title}
+              {data.title}
             </h1>
             {/* user */}
-            <div className="flex gap-5">
+            <div className="flex gap-3">
               <Image
-                src="/AboutComment/testimonial-1.png"
-                height={50}
-                width={50}
+                src={data?.user?.image || `/defaults/defaultUser.png`}
+                height={40}
+                width={40}
                 alt="user"
-                className="rounded-full "
+                className="rounded-full  "
               />
               <div>
-                <p className=" text-black font-[500] ">{findUser?.postUsername}</p>
-                <p className=" text-zinc-400 text-[12px]">{moment(findUser.createdAt).subtract(10, 'days').calendar()}</p>
+                <p className=" text-black font-[500] ">{data?.user.username}</p>
+                <p className=" text-zinc-400 text-[12px]">{moment(data.createdAt).subtract(10, 'days').calendar()}</p>
               </div>
             </div>
 
@@ -71,7 +77,7 @@ if(!findUser){
                 </div>
 
                 <div>
-                {findUser?.postUsername === signupuser?.user?.username && <PopOverEdit slug={findUser.slug}  />}
+                {data?.user.username === signupuser?.user?.username && <PopOverEdit slug={data.slug}  />}
                 </div>
               </div>
             </div>
@@ -79,7 +85,7 @@ if(!findUser){
 
           {/* ======== main images ========== */}
           <Image
-            src="/images/cactus.jpg"
+           src={data?.img || "/images/default.png"}
             width={600}
             height={600}
             alt="idImage"
@@ -92,13 +98,13 @@ if(!findUser){
         <div className="mb-[40px] lg:mb-[80px]  ">
           <div
             className=" text-black text-[18px] align-center"
-            dangerouslySetInnerHTML={{ __html: findUser?.desc || "" }}
+            dangerouslySetInnerHTML={{ __html: data?.desc || "" }}
           />
         </div>
 
         {/* ============== comments ======= */}
         <div id="comments">
-          <Comments postSlug={ findUser.slug } />
+          <Comments postSlug={ data.slug } />
         </div>
       </div>
     </div>
