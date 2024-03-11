@@ -32,7 +32,7 @@ export default async function Posts() {
         <h1 className=" text-[32px] md:text-[40px] lg:text-[50px] xl:text-[60px] text-center font-bold ">
           Recently Posts
         </h1>
-        <Link href='/write' className=' flex items-center gap-2 border-none bg-green-600 rounded-md px-5  py-2 text-white hover:text-blue-800  '><IoMdAddCircleOutline className='text-[22px] md:text-[18px]' /> <span className='hidden md:block' >Add Post </span> </Link>
+        <Link href='/write' className=' flex items-center gap-2 border-none bg-green-500 rounded-md px-5  py-2 text-white hover:bg-green-700  '><IoMdAddCircleOutline className='text-[22px] md:text-[18px]' /> <span className='hidden md:block' >Add Post </span> </Link>
       </div>
 
 
