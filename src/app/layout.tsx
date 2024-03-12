@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import React, { Suspense } from 'react';
+
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import NavbarMain from "@/components/Navbar/Navbar";
 import { Providers } from "./_Nextui/provider";
 import Footer from "@/components/Footer/Footer";
 import AuthProvider from './../providers/AuthProvider';
+import Loading from "./loading";
 // done
 const inter = DM_Sans({ subsets: ["latin"] });
 
@@ -26,7 +29,9 @@ export default function RootLayout({
         <Providers>
           <div className="  mx-auto  lg:px-0 ">
             <NavbarMain />
+            <Suspense fallback={<Loading />}>
             {children}
+            </Suspense>
             <Footer />
           </div>
         </Providers>

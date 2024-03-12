@@ -2,14 +2,21 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import {  Button} from "@nextui-org/react";
+import Link from "next/link";
+
+
+
 
 export default function Register() {
   const router = useRouter()
   const { register, handleSubmit, formState: { errors }, watch} = useForm();
   const [serverError, setServerError] = useState<string | null>(null); 
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data:any) => {
-    
+    setIsLoading(true);
+
      const response = await fetch('api/user',{
       method: 'POST',
       headers: {
@@ -17,7 +24,8 @@ export default function Register() {
       },
       body: JSON.stringify(data),
     });
-    
+    setIsLoading(false);
+
     if(response.ok){
       router.push('/login')
     }else{
@@ -79,8 +87,16 @@ export default function Register() {
 
            {serverError && <span className="text-red-500">{serverError}</span>}
 
-          <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">SignUp</button>
+           {isLoading ? (
+            <Button color="primary" isLoading className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg" >
+              Loading
+            </Button>
+          ) : <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">SignUp</button>}
         </form>
+        <div> 
+          <p> Already have an account? <Link href='/login'> Login </Link> </p>
+
+        </div>
       </div>
     </div>
   );

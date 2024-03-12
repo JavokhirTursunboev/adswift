@@ -16,6 +16,8 @@ import Link from "next/link";
 import UserPage from "./UserPage";
 import { IoIosLogOut } from "react-icons/io";
 import { signOut } from "next-auth/react";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 
 export default function NavbarUI({session}:any) {
@@ -27,6 +29,7 @@ export default function NavbarUI({session}:any) {
 
   const pathname = usePathname();
   return (
+    <Suspense fallback={<Loading />}>
     <Navbar
       className={`${
         pathname === "/about" ? "bg-gradient-to-r from-gray-200 via-gray-200 to-transparent " : ""
@@ -253,5 +256,6 @@ export default function NavbarUI({session}:any) {
        
       </NavbarMenu>
     </Navbar>
+    </Suspense>
   );
 }

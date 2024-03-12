@@ -8,16 +8,19 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDi
 export default function Register() {
   const router = useRouter()
   const { register, handleSubmit, formState: { errors },} = useForm();
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Hook for controlling modal visibility
+  const { isOpen, onOpen, onClose } = useDisclosure(); 
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data:any) => {
-    
+    setIsLoading(true);
    const signInData  = await signIn('credentials',{
     email: data.email,
     password:data.password,
     redirect:false
    })
-    
+
+   setIsLoading(false);
+
    if(signInData?.error){
     onOpen()
    }else{
@@ -54,7 +57,13 @@ export default function Register() {
 
 
 
-          <button className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">Login</button>
+          {isLoading ? (
+            <Button color="primary" isLoading className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg" >
+              Loading
+            </Button>
+          ) : (
+            <button type="submit" className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">Login</button>
+          )}
         </form>
       </div>
       {/* error */}
