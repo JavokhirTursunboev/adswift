@@ -11,8 +11,8 @@ export default function LoginWith() {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.refresh()
       router.push("/");
+      router.refresh()
     }
   }, [status, router]);
   if (status === "loading") {

@@ -27,8 +27,8 @@ export default function Register() {
    if(signInData?.error){
     onOpen()
    }else{
-     router.push('/')
      router.refresh()
+     router.push('/')
    }
   }
 
