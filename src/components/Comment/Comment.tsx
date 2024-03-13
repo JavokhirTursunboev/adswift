@@ -69,14 +69,14 @@ export const Comments = ({postSlug}:{ postSlug : string }) => {
           name:string,
           createdAt:Date,
           desc:string,
-          user:{ username:string }
+          user:{ username:string, image:string }
         }) => (
           <div className="mt-[50px]" key={item.id}>
             <div className="mb-[50px]">
               {/* ============= User of comments ================ */}
               <div className="flex items-center gap-3 mb-[20px] ">
                 <Image
-                  src={ item?.user.image || `/defaults/defaultUser.png`}
+                  src={ item?.user?.image || `/defaults/defaultUser.png`}
                   height={40}
                   width={40}
                   alt="user"

@@ -4,9 +4,12 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import Link from "next/link";
+import LoginWith from './../../../components/Register/SocialLogin/LoginWith';
 
 export default function Register() {
   const router = useRouter()
+   
   const { register, handleSubmit, formState: { errors },} = useForm();
   const { isOpen, onOpen, onClose } = useDisclosure(); 
   const [isLoading, setIsLoading] = useState(false);
@@ -65,6 +68,13 @@ export default function Register() {
             <button type="submit" className="px-3 py-2 mt-3 bg-green-500 text-white rounded-lg">Login</button>
           )}
         </form>
+        <div> 
+          <p> Don &apos; t have an account? <Link href='/register' className='text-blue-500 font-bold'> SignUp </Link> </p>
+
+        </div>
+        <div>
+          <LoginWith />
+        </div>
       </div>
       {/* error */}
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -78,6 +88,7 @@ export default function Register() {
           </ModalFooter>
         </ModalContent>
       </Modal>
+    
     </div>
   );
 }

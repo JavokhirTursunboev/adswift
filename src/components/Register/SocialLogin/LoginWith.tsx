@@ -5,21 +5,25 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function LoginWith() {
-  const { status } = useSession();
+  const { data, status } = useSession();
   const router = useRouter();
+  
+
   useEffect(() => {
     if (status === "authenticated") {
+      router.refresh()
       router.push("/");
     }
   }, [status, router]);
   if (status === "loading") {
     return <div>Loading...</div>;
   }
-
+console.log(data, status)
   return (
     <div>
-      <p className="text-center  text-[14px] ">
-        or <br /> Login with
+      <p className="text-center  text-[16px] text-zinc-500 font-bold ">
+        
+      OR
       </p>
       <div className="flex justify-between mt-[10px] gap-9 ">
         <button onClick={() => signIn("google")}>
