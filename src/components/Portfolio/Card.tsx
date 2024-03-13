@@ -8,14 +8,14 @@ interface CardProps {
   i?: number;
   range?: number[];
   targetScale?: number;
-  progress?: MotionValue<number>;
+  progress?: MotionValue<number> | undefined;
 }
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
 export default function Card({
-  i,
+  i=0,
   title,
   description,
   img,
@@ -31,8 +31,11 @@ export default function Card({
     target: container,
     offset: ["start end", "start start"],
   });
+  const definedProgress = progress ?? scrollYProgress;
+
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
-  const scale = useTransform(progress, range, [1, targetScale]);
+  const scale = useTransform(definedProgress, range ?? [0, 1], [1, targetScale ?? 1]);
+
   
   return (
     <div

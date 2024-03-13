@@ -69,7 +69,7 @@ export const Comments = ({postSlug}:{ postSlug : string }) => {
           name:string,
           createdAt:Date,
           desc:string,
-          user:{ username:string, image:string }
+          user:{ username:string, image:string, name:string}
         }) => (
           <div className="mt-[50px]" key={item.id}>
             <div className="mb-[50px]">
@@ -83,7 +83,7 @@ export const Comments = ({postSlug}:{ postSlug : string }) => {
                   className="rounded-full "
                 />
                 <div>
-                  <p className=" text-black  font-bold ">{item.user.username}</p>
+                  <p className=" text-black  font-bold ">{item.user.username || item.user.name }</p>
                   <p className="text-zinc-600 text-[11px]">{moment(item.createdAt).startOf('hour').fromNow()}</p>
                 </div>
               </div>

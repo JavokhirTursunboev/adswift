@@ -60,7 +60,7 @@ export default async function SinglePage({params}: singlepageType) {
                 className="rounded-full  "
               />
               <div>
-                <p className=" text-black font-[500] ">{data?.user.username}</p>
+                <p className=" text-black font-[500] ">{data?.user.username || data?.user.name }</p>
                 <p className=" text-zinc-400 text-[12px]">{moment(data.createdAt).subtract(10, 'days').calendar()}</p>
               </div>
             </div>

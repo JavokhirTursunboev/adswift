@@ -1,7 +1,9 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import dynamic from 'next/dynamic'; // Import dynamic from next/dynamic
+
 import Image from "next/image";
-import ReactQuill from 'react-quill'
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import 'react-quill/dist/quill.bubble.css'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from '@/utils/firebase';

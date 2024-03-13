@@ -7,7 +7,7 @@ interface PortfolioItem {
   description: string;
   color: string;
   title: string;
-  img: string; // You might need to add other properties here based on your data structure
+  img: string; 
   link: string;
 }
 
@@ -19,18 +19,6 @@ import { useScroll } from "framer-motion";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 
-// // server
-// const getData = async () => {
-//   const res = await fetch("http://localhost:3000/api/portfolio", {
-//     cache: "no-store",
-//   });
-//   if (!res.ok) {
-//     throw new Error("Failed");
-//   }
-//   return res.json();
-// };
-
-// // end server func
 
 export default function Page() {
   const [portfolios, setPortfolios] = useState<PortfolioItem[]>([]);

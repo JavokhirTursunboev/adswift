@@ -18,7 +18,6 @@ export default function LoginWith() {
   if (status === "loading") {
     return <div>Loading...</div>;
   }
-console.log(data, status)
   return (
     <div>
       <p className="text-center  text-[16px] text-zinc-500 font-bold ">

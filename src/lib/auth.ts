@@ -45,9 +45,9 @@ export const authOptions: NextAuthOptions ={
                     }
                 })
 
-                if(!existingUser){
-                    return null
-                }
+                if (!existingUser || existingUser.password === null) {
+                    return null;
+                  }
 
                 const passwordMatch = await compare(credentials.password, existingUser.password ) ;
 
