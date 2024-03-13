@@ -23,7 +23,7 @@ import Lenis from "@studio-freight/lenis";
 export default function Page() {
   const [portfolios, setPortfolios] = useState<PortfolioItem[]>([]);
   useEffect(() => {
-    fetch("http://localhost:3000/api/portfolio")
+    fetch(`${process.env.NEXTAUTH_URL}/api/portfolio`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Networking response was not ok");
