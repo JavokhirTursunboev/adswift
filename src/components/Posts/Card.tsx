@@ -44,7 +44,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
             <h1 className="md:text-[22px] xl:text-[38px] font-bold">{item.title}</h1>
      
 
-          <div className="xl:text-[18px] font-300 text-[#626262]" dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) || "" }}  />
+         
 
           {/* ================ like and read more =========== */}
           <div className="flex items-center justify-between">
@@ -56,7 +56,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
               <Link href="#">
                 <FaRegComment className="text-black" />
               </Link>
-              <PopOver color="black" />
+              <PopOver color="black" slug={item.slug} titleProp={item.title}/>
             </div>
           </div>
         </div>
@@ -79,11 +79,10 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
           <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
             {item.title}
           </h5>
-          <div className="block font-sans text-base font-light leading-relaxed text-inherit antialiased"dangerouslySetInnerHTML={{ __html: item?.desc || "" }}  />
+          
         </div>
         <div className="p-6 pt-0 flex items-center justify-between">
-          <Link
-           href={`/posts/${item.slug}`}
+        <Link href={`/posts/${item.slug}`}
             data-ripple-light="true"
             type="button"
             className="select-none 
@@ -99,7 +98,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
             <Link href="#">
               <FaRegComment className="text-black" />
             </Link>
-            <PopOver color="black" />
+            <PopOver color="black" slug={item.slug} titleProp={item.title}/>
           </div>
         </div>
       </div>

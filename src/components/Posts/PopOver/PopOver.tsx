@@ -11,9 +11,9 @@ import {
   TelegramShareButton,
 } from "react-share";
 
-export default function PopOver({ color }: { color: string }) {
-  const shareUrl = "http://google.com";
-  const title = "GitHub";
+export default function PopOver({ color, slug, titleProp }: { color: string; slug: string; titleProp: string }) {
+  const shareUrl = `https://adswift.me/posts/${slug}`;
+  const title = `${titleProp}`; 
 
   return (
     <Popover

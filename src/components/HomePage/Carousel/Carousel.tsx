@@ -71,7 +71,10 @@ export default function CarouselParent() {
                   <p>{dataCar.secondP}</p>
 
                   <div className="mt-[40px]">
-                    <GlobalBtn name={"Read Case Study"} />
+                  <a href={dataCar.link} target="_blank">
+                    
+                    <button className="bg-[#5ab424] py-[20px] px-[40px] text-white rounded-[20px] hover:bg-blue-600">Read Case Study</button>
+                    </a> 
                   </div>
 
                   <div className=" flex my-[60px]  gap-[60px] triggered">
