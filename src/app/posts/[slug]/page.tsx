@@ -73,7 +73,7 @@ export default async function SinglePage({params}: singlepageType) {
                   <Link href="#comments">
                     <FaRegComment className=" text-black " />
                   </Link>
-                  <PopOver color="black" />
+                  <PopOver color="black" slug={data.slug} titleProp={data.title}/>
                 </div>
 
                 <div>
