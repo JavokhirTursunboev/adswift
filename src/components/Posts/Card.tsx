@@ -25,7 +25,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
         {/* image container */}
         <div className=" flex-1 h-[350px] w-[350px] relative  ">
           <Image
-           src={item?.img || "/images/default.png"} // change to late
+           src={item?.img || `/defaults/defaultPost.png`} // change to late
             alt="post image"
             fill
             className="object-cover rounded-[10px]"
