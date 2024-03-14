@@ -85,7 +85,7 @@ export default async function SinglePage({params}: singlepageType) {
 
           {/* ======== main images ========== */}
           <Image
-           src={data?.img || "/images/default.png"}
+           src={data?.img || `/defaults/defaultPost.png`}
             width={600}
             height={600}
             alt="idImage"
