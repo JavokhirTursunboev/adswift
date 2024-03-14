@@ -40,7 +40,7 @@ To get started with the project:
 - **lib/:** Contains application-wide utility functions and modules for code organization.
 
 ## Deployment
-#Deploymen is here [adswift.me](https://adswift.me).
+# Deployment is here [ adswift.me ](https://adswift.me).
 Effortlessly deploy your project on Vercel by following these steps:
 
 1. Create an account on [Vercel](https://vercel.com/).
