@@ -151,14 +151,14 @@ export default function NavbarUI({session}:any) {
             name=''
             avatarProps={{
               isBordered: true,
-              src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+              src: session.user.image || `/defaults/defaultUser.png`,
             }}
             className="transition-transform"
            
           
             /> 
          <div className='flex flex-col'>
-            <p>{session?.user.username}</p>
+            <p>{ session.user.username || session.user.name }</p>
           <p className='text-[12px] text-slate-400 ' >{session?.user.email}</p>
           </div>
    </div>       

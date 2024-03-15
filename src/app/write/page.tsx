@@ -23,7 +23,7 @@ export default function Write() {
   const [isSaveDisabled, setIsSaveDisabled] = useState(true); // State to track if "Save" button should be disabled
 
   useEffect(() => {
-    setIsSaveDisabled(!(title.trim() || value.trim())); // Disable Save button if both title and value are empty
+    setIsSaveDisabled(!(title.trim() && value.trim())); 
   }, [title, value]);
 
   useEffect(() => {

@@ -73,7 +73,7 @@ export default function PostCard({ item }: PostCardProps): JSX.Element {
           bg-clip-border text-white shadow-lg shadow-blue-gray-500/40
            bg-gradient-to-r from-blue-500 to-blue-600"
         >
-          <Image  src={item?.img || "/images/house.jpg"} alt="post image" fill className="object-cover rounded-[10px]" />
+          <Image  src={item?.img || `/defaults/defaultPost.png`} alt="post image" fill className="object-cover rounded-[10px]" />
         </div>
         <div className="p-6">
           <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
